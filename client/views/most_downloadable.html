@@ -1,0 +1,19 @@
+<div xng-show="image1" class="panel panel-default" ng-init="getMostDownloadableMusics()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Most Downloadable</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row row-centered">
+      <ul class="MostDownloadableMusicList list-unstyled" ng-controller="MostDownloadable">
+        <li class="MostDownloadableMusicList--Item" ng-repeat="music in most_downloadable" repeat="music in musics">
+          <div class="">
+            <a class="" href="#/artists/details/{{music._id}}">
+              <img class="thumbnail" src="{{music.album_art}}">
+              <small>{{music.title}}</small>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

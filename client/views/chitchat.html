@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" id="myyearbook" class="windows">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyYearBook Test Suit</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="msthemecompatible" content="yes" />
+    <meta name="apple-itunes-app" content="app-id=1039460951">
+
+    <link rel="canonical" href="https://web.chatme.com" />
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/global-core.bundle.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/frameworks.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/edge-design/css/edge-icons.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/chitchat.style.css" >
+
+    <!-- scripts -->
+    <script type="text/javascript" src="/assets/js/vendor/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/libs/jasmine-jquery/lib/jasmine-jquery.js"></script>
+    <script type="text/javascript">window.chatMe = window.chatMe || {}; chatMe.queue = [];</script>
+
+</head>
+<body class="xyzDesign">
+<div class="view-container _-kbd _2yqp new-topbar " data-view-id="home-page">
+    <div id="pagelet_purplebar">
+        <header class="nav-container user-logged-in site__header site__header--white gradient_v2">
+            <div id="desktop-nav" class="global-nav">
+                <div class="-container nav-height ">
+                    <div class="-main pull-left nav-extras">
+                        <a class="-logo" href="http://web.chatme.com/">
+                            <i class="Icon Icon--bird Icon--medium" style="padding:12px 0;width:35px;"></i>
+                            <i class="icon icon-ios-videocam-outline hide" style="font-size: xx-large"></i>
+                        </a>
+                        <div class="-search">
+                            <form class="search-form-container" action="/search.php" method="get">
+                                <div class="search-wrapper">
+                                    <span class="algol-autocomplete" style="position:relative;display:inline-block;direction:ltr;">
+                                        <input id="algol-search" class="ds-input" tabindex="0" type="search" placeholder="Search People, Friends, Chats, Chatrooms" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-labelledby="algol-search" aria-owns="algol-autocomplete-listbox-0" dir="auto" style="position:relative;vertical-align:top;">
+                                        <button name="submit" class="search-submit-button Icon Icon--search"></button>
+                                        <span class="ds-dropdown-menu" role="listbox" id="algol-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; left: 0px; right: auto; display: none;">
+                                            <div class="ds-dataset-1"></div>
+                                        </span>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="links pull-right -actions">
+                        <div class="login-container" data-mega-menu-id="1">
+                            <a href="#" class="user-profile-container">
+                                <div class="user-profile-content">
+                                    <img src="/assets/images/profile__dp__img.jpg" class="user-profile-img" style="margin-right:5px;background-position:center;background-repeat:no-repeat;background-size:cover;border-radius:20px;flex-shrink:0;width:27px;height:27px;background: #fff;" >
+                                    <span class="user-profile-name">Kitten</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="VerticalDivider"></div>
+                        <ul class="site-nav list-inline right-actions">
+                            <li data-name="home" class="_cy7">
+                                <a href="#"><span>Home</span></a>
+                            </li>
+                            <li data-name="messages" class="_cy6">
+                                <a href="#" class="">
+                                    <span><i class="Icon Icon--message Icon--large"></i></span>
+                                </a>
+                                <ol class="dropdown-toggle hide">
+                                    <li class="">
+                                        <a href="#" class="NotifixDropDown">Messages</a>
+                                        <div class="NotifixDropDown-dropdown-menu">
+
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li data-name="notifications" class="_cy6">
+                                <a href="#" class=""><span><i class="Icon Icon--notifications Icon--large"></i></span></a>
+                                <ol class="dropdown-toggle hide">
+                                    <li class="">
+                                        <a href="#" class="NotifixDropDown">Notification</a>
+                                        <div class="NotifixDropDown-dropdown-menu">
+
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <div class="VerticalDivider"></div>
+                            <li data-name="setting" class="_cy6">
+                                <a href="#"><span><i class="Icon Icon--cogWithCaret Icon--large"></i></span></a>
+                            </li>
+                            <li data-name="help" class="_cy6">
+                                <a href="#"><span><i class="Icon Icon--lifeline Icon--large"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                    <div class="burger-container hide">
+                        <button id="navbar-toggle" class="navbar-toggle burger" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i></i>
+                        </button>
+                        <div class="search">
+                            <div class="search-form-container -mobile">
+                                <a href="#" class="mobile-search">
+                                    <i class="ion-ios-search-strong -icon -search"></i>
+                                </a>
+                                <form class="search-form has-validation-callback" action="/search.php" method="get">
+                                    <div class="field-container">
+                                        <input name="s" class="field" type="text" placeholder="search...">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+            </nav>
+        </header>
+    </div>
+
+    <div id="globalContainer">
+        <div id="wrapper" class="content-wrapper discoverWrapper sidebar-and-article">
+            <div class="-container u-marginAuto u-clearfix">
+                <div class="-row">
+                    <section id="sidebar" class="u-maxWidth210 sidebar-column" role="complemetary">
+                        <div class="col col-md-12 u-paddingTop13 u-padding0">
+                            <aside class="sidebar">
+                                <div class="sidebar-wrapper">
+                                    <span class="sidebar-title">
+                                        <b>MyYearBook</b>
+                                    </span>
+                                    <div class="">
+                                        <div class="">
+                                            <a class="user" href="#">
+                                                <div class="avatar">
+                                                    <img src="/assets/images/profile__dp__img.jpg">
+                                                </div>
+                                                <div class="username">
+                                                    <span>Lieasi Hurdy</span>
+                                                    <em>chatme@kitten</em>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <ol class="sidebar-menu u-marginTop5">
+                                            <li data-name="calls" class="sidebar-menu-item u-textAlignLeft">
+                                                <a class="feature__app" href="#calls">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f4de.png">
+                                                        <span class="feature__app__name">Call</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="messages" class="sidebar-menu-item u-textAlignLeft">
+                                                <a class="feature__app" href="#messages">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f4ac.png">
+                                                        <span class="feature__app__name">Chat</span>
+                                                        <em class="mr-2 floatr badge" data-count-unseen="2">2</em>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="discover" class="sidebar-menu-item u-textAlignLeft">
+                                                <a class="feature__app" href="#chatrooms">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f3a8.png">
+                                                        <span class="feature__app__name">Discover</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="hot-topics" class="sidebar-menu-item -active">
+                                                <a class="feature__app" href="#trendings">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f4c8.png">
+                                                        <span class="feature__app__name">Trending</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="contacts" class="sidebar-menu-item">
+                                                <a class="feature__app" href="#trendings">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f4c6.png">
+                                                        <span class="feature__app__name">Contact lists</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="contacts" class="sidebar-menu-item">
+                                                <a class="feature__app" href="#trendings">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f465.png">
+                                                        <span class="feature__app__name">Followers</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="contacts" class="sidebar-menu-item">
+                                                <a class="feature__app" href="#trendings">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f465.png">
+                                                        <span class="feature__app__name">Groups</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="contacts" class="sidebar-menu-item">
+                                                <a class="feature__app" href="#trendings">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f4e3.png">
+                                                        <span class="feature__app__name">Shouts</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li cat-name="settings-cat" class="sidebar-menu-cat">
+                                                <span class="cat-name">Settings</span>
+                                            </li>
+                                            <li data-name="contacts" class="sidebar-menu-item">
+                                                <a class="feature__app" href="#trendings">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/2693.png">
+                                                        <span class="feature__app__name">Help</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="user-activity-log" class="sidebar-menu-item">
+                                                <a class="feature__app" href="#activity">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/lists/clipboard_48.png">
+                                                        <span class="feature__app__name">Activity logs</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li data-name="settings" class="sidebar-menu-item">
+                                                <a class="feature__app" href="#settings">
+                                                    <div class="feature__app__div">
+                                                        <img class="feature__app__icon" src="/assets/images/web-ui/sprites/1f527.png">
+                                                        <span class="feature__app__name">Settings</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                        </ol>
+                                    </div>
+                                    <div class="footer">
+                                        <small>
+                                            &copy; 2017 MyYearBook.
+                                        </small>
+                                    </div>
+                                    <footer>
+                                        <small>
+                                            &copy; 2017 MyYearBook.com. All rights reserved.
+                                        </small>
+                                    </footer>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <section class="u-marginLeft12" ng-style="myStyle">
+                        <!-- end main_content -->
+                        <div id="content" class="u-marginLeft12x /u-width500 floatl" role="main" style="width:618px;!important">
+                            <div class="col col-md-12 u-margin0 u-padding0 u-paddingTop13">
+                                <div class="panel bg-teal2" style="padding: 5px">
+                                    <div class="spinner"></div>
+                                    <span class="loading-text">Loading...</span>
+
+                                    <div class="gadgets">
+
+
+                                        <h4>Loading...</h4>
+
+                                        <div ng-controller="ExampleController">
+                                            <label>Person 1:<input type="text" ng-model="person1" value="Igor" /></label><br/>
+                                            <label>Person 2:<input type="text" ng-model="person2" value="Misko" /></label><br/>
+                                            <label>Number of People:<input type="text" ng-model="personCount" value="1" /></label><br/>
+                                        </div>
+
+                                        <div ng-controller="repeatController">
+                                            I have {{friends.length}} friends. They are:
+                                            <input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
+                                            <ul class="example-animate-container">
+                                                <li class="animate-repeat" ng-repeat="friend in friends | filter:q as results">
+                                                    [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old goes to {{friend.school}}.
+                                                </li>
+                                                <li class="animate-repeat" ng-if="results.length == 0">
+                                                    <strong>No results found...</strong>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br/>
+                                        <div>
+                                            Show:
+                                            <div class="check-element animate-hide" ng-show="checked">
+                                                <span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.
+                                            </div>
+                                        </div>
+                                        <div>
+                                            Hide:
+                                            <div class="check-element animate-hide" ng-hide="checked">
+                                                <span class="glyphicon glyphicon-thumbs-down"></span> I hide when your checkbox is checked.
+                                            </div>
+                                        </div>
+
+
+                                        <!-- like controller -->
+                                        <!--<div ng-controller="LikesController as ctrl">
+                                <div>
+                                    <button ng-click="ctrl.inc()" id="inc">Increment</button>
+                                    <span id="counter">{{ctrl.LikesCounter}}</span>
+                                </div>
+                                <div>
+                                    <button ng-click="ctrl.evil()" id="evil">Evil</button>
+                                    <span id="evilError">{{ctrl.evilError}}</span>
+                                </div>
+                            </div>-->
+
+                                        <button ng-click="count = count + 1" ng-init="count=0" class="glyphicon glyphicon-thumbs-up">
+                                            Like
+                                        </button>
+                                        <span>
+                                            count: {{count}}
+                                        </span>
+                                        <button ng-click="count = count - 1" class="glyphicon glyphicon-thumbs-down">
+                                            Dislike
+                                        </button>
+
+                                        <input type="button" value="set color" ng-click="myStyle={color:'red'}">
+                                        <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
+                                        <input type="button" value="clear" ng-click="myStyle={}">
+                                        <br/>
+                                        <span ng-style="myStyle">Sample Text</span>
+                                        <pre>myStyle={{myStyle}}</pre>
+
+                                        <div ng-controller="SwitchController">
+                                            <select ng-model="selection" ng-options="item for item in items">
+                                            </select>
+                                            <code>selection={{selection}}</code>
+                                            <hr/>
+                                            <div class="animate-switch-container"
+                                                 ng-switch on="selection">
+                                                <div class="animate-switch" ng-switch-when="settings">Settings Div</div>
+                                                <div class="animate-switch" ng-switch-when="home">Home Span</div>
+                                                <div class="animate-switch" ng-switch-default>default</div>
+                                            </div>
+                                        </div>
+
+                                        <div ng-controller="ExampleController">
+                                            <input ng-model="title" aria-label="title"> <br/>
+                                            <textarea ng-model="text" aria-label="text"></textarea> <br/>
+                                            <pane title="{{title}}">{{text}}</pane>
+                                        </div>
+
+                                        <!-- fallback button content -->
+                                        <my-button id="fallback"></my-button>
+                                        <!-- modified button content -->
+                                        <my-button id="modified">
+                                            <i style="color: green;">Button2</i>
+                                        </my-button>
+
+                                        <div ng-controller="ExampleController2">
+                                            <input ng-model="title" aria-label="title"> <br/>
+                                            <textarea ng-model="text" aria-label="text"></textarea> <br/>
+                                            <pane-2>
+                                                <pane-title><a ng-href="{{link}}">{{title}}</a></pane-title>
+                                                <pane-body><p>{{text}}</p></pane-body>
+                                            </pane-2>
+                                        </div>
+
+
+                                        <div ng-controller="ExampleController3">
+                                            <form name="myForm">
+                                                <label for="singleSelect"> Single select: </label><br>
+                                                <select name="singleSelect" ng-model="data.singleSelect">
+                                                    <option value="option-1">Option 1</option>
+                                                    <option value="option-2">Option 2</option>
+                                                </select><br>
+
+                                                <label for="singleSelect"> Single select with "not selected" option and dynamic option values: </label><br>
+                                                <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+                                                    <option value="">---Please select---</option> <!-- not selected / blank option -->
+                                                    <option value="{{data.option1}}">Option 1</option> <!-- interpolation -->
+                                                    <option value="option-2">Option 2</option>
+                                                </select><br>
+                                                <button ng-click="forceUnknownOption()">Force unknown option</button><br>
+                                                <tt>singleSelect = {{data.singleSelect}}</tt>
+
+                                                <hr>
+                                                <label for="multipleSelect"> Multiple select: </label><br>
+                                                <select name="multipleSelect" id="multipleSelect" ng-model="data.multipleSelect" multiple>
+                                                    <option value="option-1">Option 1</option>
+                                                    <option value="option-2">Option 2</option>
+                                                    <option value="option-3">Option 3</option>
+                                                </select><br>
+                                                <tt>multipleSelect = {{data.multipleSelect}}</tt><br/>
+                                            </form>
+                                        </div>
+
+                                        <div ng-controller="ExampleController4">
+                                            <form name="myForm">
+                                                <label for="repeatSelect"> Repeat select: </label>
+                                                <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
+                                                    <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                                                </select>
+                                            </form>
+                                            <hr>
+                                            <tt>repeatSelect = {{data.repeatSelect}}</tt><br/>
+                                        </div>
+
+
+                                        <!-- Control buttons -->
+                                        <input type="radio" onclick="filterSelection('all')" name="category" checked>
+                                        Show all
+                                        <input type="radio" onclick="filterSelection('cars')" name="category"> Cars
+                                        <input type="radio" onclick="filterSelection('animals')" name="category">
+                                        Animals
+                                        <input type="radio" onclick="filterSelection('fruits')" name="category"> Fruits
+                                        <input type="radio" onclick="filterSelection('colors')" name="category"> Colors
+                                        <!-- The filterable elements. Note that some have multiple class names (this can
+                                        be used if they belong to multiple categories) -->
+                                        <div class="container">
+                                            <div class="filterDiv cars">BMW</div>
+                                            <div class="filterDiv colors fruits">Orange</div>
+                                            <div class="filterDiv cars">Volvo</div>
+                                            <div class="filterDiv colors">Red</div>
+                                            <div class="filterDiv cars animals">Mustang</div>
+                                            <div class="filterDiv colors">Blue</div>
+                                            <div class="filterDiv animals">Cat</div>
+                                            <div class="filterDiv animals">Dog</div>
+                                            <div class="filterDiv fruits">Melon</div>
+                                            <div class="filterDiv fruits animals">Kiwi</div>
+                                            <div class="filterDiv fruits">Banana</div>
+                                            <div class="filterDiv fruits">Lemon</div>
+                                            <div class="filterDiv animals">Cow</div>
+                                        </div>
+
+
+
+
+                                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+                                        <ul id="myUL">
+                                            <li><a href="#">Adele</a></li>
+                                            <li><a href="#">Agnes</a></li>
+                                            <li><a href="#">Billy</a></li>
+                                            <li><a href="#">Bob</a></li>
+                                            <li><a href="#">Calvin</a></li>
+                                            <li><a href="#">Christina</a></li>
+                                            <li><a href="#">Cindy</a></li>
+                                        </ul>
+
+                                        <ul id="ulList">
+                                            <li id="liListItem">hello <%= myName %></li>
+                                        </ul>
+
+
+                                        <div class="noGrip hide">
+                                            <span class="sidebar-title u-marginBottom5">
+                                                <b>Notification</b>
+                                            </span>
+                                            <ul class="sidebar-list u-marginVerticle10">
+                                                <li class="sidebar-list-item u-textAlignLeft u-paddingLeft5" data-id="100011725458765">
+                                                    <a href="https://web.chatme.com/messages/t/100011725458765" class="users-container online-user" rel="ignore">
+                                                        <div id="users-status-header-container" class="users-status-row">
+                                                            <div class="" aria-hidden="true">
+                                                                <div class="" size="34" style="width: 34px;height: 34px;">
+                                                                    <img src="/assets/images/default-avatar.jpg" width="34" height="34" alt="" class="profile-avatar">
+                                                                </div>
+                                                            </div>
+                                                            <div class="">
+                                                                <div class="">
+                                                                    <div class=""></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="">Dolly</div>
+                                                            <div class=""></div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+
+                                        <h1>My To-Do-List</h1>
+                                        <input id="inputList" type="text" name="list" placeholder="New item"/>
+                                        <button id="add">Add</button>
+                                        <ol id="mylist"></ol>
+
+                                        <script>
+                                            $(function(){
+                                                $("#add").on("click", function(){
+                                                    var val = $("#inputList").val();
+                                                    if (val !== '') {
+                                                        var elem = $("<li></li>").text(val);
+                                                        $(elem).append("<button class='rem'>X</button>");
+                                                        $("#mylist").append(elem);
+                                                        $("#inputList").val("");
+                                                        $(".rem").on('click', function(){
+                                                            $(this).parent().remove();
+                                                        });
+                                                    }
+                                                });
+                                            });
+                                        </script>
+
+                                        <div id="my-fixture">some complex content here</div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end main_content -->
+                        <!-- start right-layout -->
+                        <div class="right-layout u-width308 floatr u-marginLeft12">
+                            <div class="col u-paddingTop13 u-padding0 content-container u-clearfix sticky-top" ec-stickyfill="ec-stickyfill">
+                                <div class="panel widget" ng-controller="repeatController">
+                                    <div class="panel-heading u-flexStart">
+                                        <h4 class="panel-title u-flex1">Online</h4>
+                                        <em class="sup-notation">{{friends.length}}</em>
+                                        <span class="mini-actions">
+                                            <div class="buttonSet">
+                                                <button class="button button--chromeless is-touchIconFadeInPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--bookmark js-bookmarkButton is-touched" title="Bookmark this story to read later" aria-label="Bookmark this story to read later" data-action="sign-up-prompt" data-sign-in-action="add-to-bookmarks" data-requires-token="true" data-redirect="https://medium.com/_/bookmark/p/120ea540b567" data-action-source="placement_card_footer_grid-----120ea540b567----1-41----------------bookmark_preview">
+                                                    <span class="button-defaultState">
+                                                        <span class="svgIcon svgIcon--bookmark svgIcon--25px">
+                                                            <svg aria-hidden="true" class="svg-icon icon__ellipsis iconMore" height="18" width="20" viewBox="0 0 25 18" xmlns="http://www.w3.org/2000/svg"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg>
+                                                        </span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="panel-body uiScrollableArea">
+                                        <input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" style="border: 2px solid;width: 100%;padding: 0 5px;margin-bottom: 5px;height: 34px;color: #39464E;font-size: 13px;background: 0 0;border: 1px solid #cfd6d9;border-radius: 2px;outline: 0;box-sizing: border-box;vertical-align: middle;-webkit-appearance: none;-moz-appearance: none;"/>
+                                        <div class="u-margin0 uiScrollableContent u-height300">
+                                            <ul class="sidebar-list">
+                                                <li class="sidebar-list-item" ng-repeat="friend in friends | filter:q as results">
+                                                    <a href="{{friend.uri}}" class="users-container online-user">
+                                                        <div id="users-status-header-container" class="users-status-row">
+                                                            <img class="profile-avatar" src="/assets/images/default-avatar.jpg">
+                                                            <span class="profile-name" is="{{friend.online}}" title="{{friend.name}}">{{friend.name}}</span>
+                                                            <div id="users-status-header">
+                                                                <em class="users-status-icon"></em>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <a class="sidebar-list-item" href="#" ng-if="results.length == 0">
+                                                    <strong class="test-small text-muted">No friends of yours are online right now... <br/>click to refresh</strong>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel widget" ng-controller="repeatController">
+                                    <div class="panel-heading u-flexStart">
+                                        <h4 class="panel-title u-flex1">Suggested People</h4>
+                                        <span class="mini-actions">
+                                            <div class="buttonSet">
+                                                <button class="button button--chromeless is-touchIconFadeInPulse u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--bookmark js-bookmarkButton is-touched" title="Bookmark this story to read later" aria-label="Bookmark this story to read later" data-action="sign-up-prompt" data-sign-in-action="add-to-bookmarks" data-requires-token="true" data-redirect="https://medium.com/_/bookmark/p/120ea540b567" data-action-source="placement_card_footer_grid-----120ea540b567----1-41----------------bookmark_preview">
+                                                    <span class="button-defaultState">
+                                                        <span class="svgIcon svgIcon--bookmark svgIcon--25px">
+                                                            <svg aria-hidden="true" class="svg-icon icon__ellipsis iconMore" height="18" width="20" viewBox="0 0 25 18" xmlns="http://www.w3.org/2000/svg"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg>
+                                                        </span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="panel-body uiScrollableArea u-height200">
+                                        <div class="u-margin0 uiScrollableContent">
+                                            <ul class="sidebar-list">
+                                                <li class="sidebar-list-item" ng-repeat="friend in friends | filter:q as results">
+                                                    <a href="#" class="users-container online-user">
+                                                        <div id="users-status-header-container" class="users-status-row">
+                                                            <img class="profile-avatar" src="/assets/images/default-avatar.jpg">
+                                                            <span class="profile-name" is="{{friend.online}}" title="{{friend.name}}">{{friend.name}}</span>
+                                                            <div id="users-status-header">
+                                                                <em class="users-status-icon"></em>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <a class="sidebar-list-item" href="#" ng-if="results.length == 0">
+                                                    <strong class="test-small text-muted">No friends of yours are online right now... <br/>click to refresh</strong>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end right-layout -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end globalContainer -->
+</div>
+
+
+<div class="floating-window" id="connection-error" style="display:none">
+    <span class="close"></span>
+    <div class="floating-window-content">
+      <span class="closex"></span>
+      <div class="unstlyed popup">
+        <span><strong>connection lost:</strong></span>
+        <span><a href="https://weheartit.com/articles/296695708-how-to-take-cute-notes">try refreshing to keep hearting</a></span>
+      </div>
+    </div>
+  </div>
+
+
+<!-- /.container -->
+<script type="text/javascript" src="/assets/js/vendor/vkbeautify.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/json2.js"></script>
+<!-- /.utility library-->
+<script type="text/javascript" src="/test/public/js/libs/ember.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/underscore.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/backbone.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/lazy.min.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/handlebars.js"></script>
+<!--script type="text/javascript" src="/assets/js/vendor/require.min.js"></script-->
+<script type="text/javascript" src="/assets/js/vendor/respond.min.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/moment-2.7.0.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/less.min.js"></script>
+<!-- /.react.js -->
+<script src="/assets/js/vendor/react-15.1.0.min.js"></script>
+<script src="/assets/js/vendor/react-dom-15.1.0.min.js"></script>
+<!-- libs/angularjs js -->
+<script type="text/javascript" src="/libs/angular/angular.js"></script>
+<script type="text/javascript" src="/libs/angular/angular-route.js"></script>
+<script src="/assets/js/vendor/vue.min.js"></script>
+<!-- your app's js -->
+<script src="/test/index.js"></script>
+<script src="/test/public/js/test.js"></script>
+
+<script type="text/javascript">
+        loadFixtures('myfixture.html')
+        $('#my-fixture').myTestedPlugin()
+        expect($('#my-fixture'));
+    </script>
+
+<script type="text/javascript">
+        function myFunction() {
+
+            // Declare variables
+            var input, filter, ul, li, a, i;
+
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+    </script>
+<script type="text/javascript">
+        var globalVar;
+
+        /**
+         * Constructor for <code>AjaxRequest</code> class
+         * @param url the url for the request<p/>
+         */
+         function AjaxRequest(url) {
+            var urls = [ "www.cnn.com", 5, globalVar];
+            this.request = new XMLHttpRequest();
+            url = url.replace(/^\s*(.*)/, "$1"); // skip leading whitespace
+            /* check the url to be in urls */
+            var a = "\u1111\z\n\u11";
+            this.foo = new function() {};
+            foo();
+
+            var hello = () => console.log("hello")
+        }
+
+        class NameClass {}
+
+        declare module name{}
+    </script>
+
+<script type="text/javascript">
+        filterSelection("all");
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        // Show filtered elements
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+        // Hide elements that are not selected
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+    </script>
+
+<style type="text/css">
+        .container {
+            overflow: hidden;
+        }
+        .filterDiv {
+            float: left;
+            background-color: #2196F3;
+            color: #ffffff;
+            width: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 2px;
+            display: none; /* Hidden by default */
+        }
+        /* The "show" class is added to the filtered elements */
+        .show {
+            display: block;
+        }
+    </style>
+
+<script type="text/javascript">
+        $.ajax({
+            url: "process.php",
+            type: "POST",
+            data: "class=6470&name=Tim",
+                // alert(data.time);
+            // },
+            success: function(msg){
+                alert("Data:" + msg );
+            }
+        });
+        $.post(
+            "test.php",
+            {
+                func: "getNameAndTime"
+            },
+            function(data){
+                alert(data.name);
+                alert(data.name);
+            },
+            "json"
+        );
+        $.getJSON(
+            "http://api.flickr.com/services/feeds/photos_public.gne?tags=doggy&format=json&jsoncallback=?",
+            function(data){
+                $.each(data.items, function(i,item){
+                    $("<img/>").attr("src", item.media.m).appendTo("#images");
+                    if ( i == 2 ) return false;
+                });
+            }
+        );
+        $('<div id="loading">Loading...</div>')
+            .insertBefore("#images")
+            .ajaxStart(
+                function(){
+                    $(this).show();
+                }
+            ).ajaxStop(
+                function(){
+                    $(this).hide();
+                }
+            );
+    </script>
+<script type="text/javascript">
+    $("#leftTap").click(function() {
+        $("#iphone").removeClass("social");
+    });
+
+    $("#rightTap").click(function() {
+       $("#iphone").addClass("social");
+    });
+</script>
+<script type="text/javascript">
+    define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/chatbox/msg-item.html'
+    ], function($, _, Backbone, messageItem){
+    });
+    var myString = 'I love Javascript';
+    var pattern = new RegExp('javascript', 'i');
+    var match = myString.match(pattern);
+    console.log(match);
+
+    var people = ['Pharrel Williams', 'Led Smith', 'Rolling Smith'];
+
+        var results = [];
+        for (var i = 0; i < people.length; ++i) {
+            if (people[i].lastName.startsWith('Smith')) {
+                results.push(people[i].lastName);
+                if (results.length === 5) {
+                    break;
+                }
+            }
+        }
+
+
+        var result = Lazy(people)
+        .pluck('lastName')
+        .filter(function(name) { return name.startsWith('Smith');})
+        .take(5);
+
+
+        // First we define our "sequence" of events.
+        var mouseEvents = Lazy(sourceElement).on("mousemove");
+
+        // Map the Event objects to their coordinates, relative to the element.
+        var coordinates = mouseEvents.map(function(e) {
+            var elementRect = sourceElement.getBoundingClientRect();
+            return [
+            Math.floor(e.clientX - elementRect.left),
+            Math.floor(e.clientY - elementRect.top)
+            ];
+        });
+
+        // For mouse events on one side of the element, display the coordinates in one place.
+        coordinates
+            .filter(function(pos) { return pos[0] < sourceElement.clientWidth / 2; })
+            .each(function(pos) { displayCoordinates(leftElement, pos); });
+
+        // For those on the other side, display them in a different place.
+        coordinates
+           .filter(function(pos) { return pos[0] > sourceElement.clientWidth / 2; })
+           .each(function(pos) { displayCoordinates(rightElement, pos); });
+    </script>
+
+</body>
+</html>

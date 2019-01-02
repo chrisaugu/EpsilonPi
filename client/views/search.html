@@ -1,0 +1,78 @@
+<div>
+	<ul class="nav nav-tabs">
+		<li role="presentation" ng-class="{active:!showFilterForm}"><a ng-click="toggleFilterForm()">All Results</a></li>
+		<li role="presentation" ng-class="{active:showFilterForm}"><a ng-click="toggleFilterForm()">Filter Result</a></li>
+	</ul>
+	<div class="panel" ng-init="getSearchResults()" g-init="getFilteredSearchResults()">	
+		<div class="item-amount">
+		  <span class="label label-default">{{collection.length}} Tracks</span>
+		</div>
+		<div class="panel-heading">
+			<h3 class="panel-title radio-inline">Sort tracks by: 
+				<input type="radio" id="none" name="none" value="none" hidden="" ng-model="track.sort">
+				<input type="radio" id="duration" name="duration" value="duration" hidden="" ng-model="track.sort">
+				<input type="radio" id="likes" name="like" value="likes" hidden="" ng-model="track.sort">
+				<input type="radio" id="plays" name="plays" value="plays" hidden="" ng-model="track.sort">
+				<input type="radio" id="created" name="created" value="created" hidden="" ng-model="track.sort">
+	
+				<label for="none" ng-class="{'selected': track.sort == 'none'}">None</label>|
+				<label for="duration" ng-class="{'selected': track.sort == 'duration'}">Duration</label>|
+				<label for="likes" ng-class="{'selected': track.sort == 'likes'}">Likes</label>|
+				<label for="plays" ng-class="{'selected': track.sort == 'plays'}">Plays</label>|
+				<label for="created" ng-class="{'selected': track.sort == 'created'}">Created</label>
+			</h3>
+		</div>
+
+		<div ng-show="!showFilterForm" class="panel-body">
+				<div class="row">
+					<ul class="MostDownloadableMusicList list-unstyled">
+						<li class="MostDownloadableMusicList--Item" ng-repeat="result in search_results">
+							<div class="col-md-12">
+								<div class="pull-left">
+									<a href="#/musics/details/{{result._id}}"><span>{{result.title}}</span></a>
+									<br>
+									<a href="#/artists/details/{{result._id}}"><span>By {{result.artist}}</span></a>
+									<br>
+									<span>Bitrate {{result.artist}}</span>
+								</div>
+								<div class="pull-right">
+									<button class="btn btn-primary" download ng-click="download()">Download</button>
+									<!-- <button class="btn btn-primary" ng-controller="MusicPlayerController" ng-click="play()">Play MP3</button> -->
+									<button class="btn btn-primary" ng-click="play()">Play MP3</button>
+								</div>
+							</div>
+						</li>
+						<li class="animate-repeat" ng-if="result.length == 0">
+							<strong>No results found ...</strong>
+						</li>
+					</ul>
+				</div>
+		</div>
+
+		<div ng-show="showFilterForm" class="panel-body">
+			<div class="row">
+				<ul class="MostDownloadableMusicList list-unstyled">
+					<li class="MostDownloadableMusicList--Item" ng-repeat="result in filtered_search_results">
+						<div class="col-md-12">
+							<div class="pull-left">
+								<a href="#/musics/details/{{result._id}}"><span>{{result.title}}</span></a>
+								<br>
+								<a href="#/artists/details/{{result._id}}"><span>By {{result.artist}}</span></a>
+								<br>
+								<span>Bitrate {{result.artist}}</span>
+							</div>
+							<div class="pull-right">
+								<button class="btn btn-primary">Download</button>
+								<!-- <button class="btn btn-primary" ng-controller="MusicPlayerController" ng-click="play()">Play MP3</button> -->
+								<button class="btn btn-primary">Play MP3</button>
+							</div>
+						</div>
+					</li>
+					<li class="animate-repeat" ng-if="result.length == 0">
+						<strong>No results found ...</strong>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

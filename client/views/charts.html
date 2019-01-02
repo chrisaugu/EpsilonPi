@@ -1,0 +1,33 @@
+<div class="panel panel-default" ng-init="getChartLists()">
+	<div class="panel-heading" style="display: flex;">
+		<h4 class="panel-title">Charts</h4>
+		<span class="participantsInfo"><button ng-click="refreshRanking()" class="refresh fa fa-refresh"></button></span>
+  </div>
+	<div class="panel-body">
+		<div class="row">
+			<div ng-repeat="technique in techniques" class="col-md-3 col-xs-6">
+				<h3 class="technique">{{technique.name}}</h3>
+				<div class="well" ng-repeat="ui in uiset[technique.name] | object2Array | orderBy : 'value/impressions' : true">
+					<img class="smallimage" src="images/{{ui.name}}.jpg" />
+					<span class="name">{{ui.name}}</span>
+					<span class="score">{{Math.round(ui.value/ui.impressions*100)}}%</span>
+				</div>
+			</div>
+			<ul class="Lists list-inline list-unstyled">
+				<li class="col-md-12 Lists--item" ng-repeat="music in musics">
+					<div class="col-md-12">
+						<div class="col-md-3">
+							<img class="thumbnail" src="{{music.album.album_art}}">
+						</div>
+						<div class="col-md-9">
+							<h4>{{music.title}}</h4>
+							<p>Artist: <a href="#/artists/details/{{music.artist._id}}">{{music.artist.stage_name}}</a></p>
+							<a class="btn btn-sm btn-primary" href="#/musics/details/{{music._id}}">View Details</a>
+							<a ng-href="#/edit/{{music._id}}"><i class="icon-pencil"></i></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

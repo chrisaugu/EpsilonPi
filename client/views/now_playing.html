@@ -1,0 +1,37 @@
+<div id="NowPlaying">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="nowPlayingAlbumArtCover">
+				<img class="illustration img-responsive center-block" src="/images/0.png" />
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 information">
+			<h4>Information &amp; Copyright</h4>
+			<div>
+				People are innocent until proven guilty <br/>
+				This site is not serious <br/>
+				The information on this site may or may not be factual. There is no guarantee.
+			</div>
+		</div>
+		<div class="col-sm-8 footer-top">
+			<h4><b>Epsilon Pi &copy; 2018 by Christian Augustyn</b></h4>
+			<ul class="list-inline list-unstyled">
+				<li class="pull-left">
+				<a href="/detail/" data-placement="top" data-toggle="tooltip" data-title="hello">
+					<img src="/images/mugs-400x500/">
+				</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="btn-group">
+			<button class="btn" ng-class="{ 'btn-danger': hasLiked, 'btn-default': !hasLiked }" ng-click="like()">
+				<i class="ion-heart" ng-class="{ 'text-danger': !hasLiked }"></i>
+				<i class="glyphicon" ng-class="{ 'glyphicon-thumbs-up': !hasLiked, 'glyphicon-thumbs-down': hasLiked }"></i>
+				<span ng-if="hasLiked">Liked</span><span ng-if="!hasLiked">Like</span>
+			</button>
+		</div>
+	</div>
+</div>

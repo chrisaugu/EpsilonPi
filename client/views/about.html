@@ -1,0 +1,18 @@
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title"></h3>
+    </div>
+    <div class="panel-body" ng-controller="_navbar_controller">
+        <div class="row" ng-repeat="navlink in _nav_links">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <h4>{{navlink.link_title}}</h4>
+                    <p>{{navlink.link_title}}</p>
+                    <img class="thumbnail" src="{{post.post_image_url}}">
+                    <a class="btn btn-primary" href="#/posts/details/{{user._id}}">View Post</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

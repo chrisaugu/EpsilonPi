@@ -1,0 +1,81 @@
+<a href="#/musics">Go Back</a>
+<div class="pull-right">
+  <a href="#/musics/edit/{{music._id}}">Edit</a> |  <a href="#" ng-click="removeMusic(music._id)">Delete</a>
+</div>
+
+<div id="MusicAlbum--Content" ng-init="getMusic()">
+
+  <div id="AlbumDetails" class="row">
+    
+    <div id="AlbumArt" class="col-lg-3 col-md-3 col-sm-3 ">
+      <div class="AlbumArt">
+        <img src="{{music.album_art}}">
+      </div>
+      <div class="track-cover" [class.hasnotrack]="!track || !getArtworkUrl()">
+        <div ngif="track &amp;&amp; getArtworkUrl()" class="cover">
+          <img [src]="getArtworkUrl()">
+        </div>
+        <div ngif="!track || !getArtworkUrl()" class="no-track">
+          <cloud-player-logo [animate]="animate"></cloud-player-logo>
+        </div>
+      </div>
+    </div>
+  
+    <div id="AlbumMetadata" class="col-lg-9 col-md-9 col-sm-9 ">
+      <h1><a href="#/now_playing/{{music._id}}">{{music.title}}</a></h1>
+      <ul class="list-inline list-unstyled">
+        <li class="list-item">By <a href="#/artists/details/{{music.artist}}">{{music.author}}</a></li>·
+        <li class="list-item">2013</li>·
+        <li class="list-item">15 tracks</li>·
+        <li class="list-item">50 min</li>
+      </ul>
+      <button class="btn btn-round btn-primary" *ngif="!isQueued()" (click)="queue()" title="Add to Queue">
+        <i class="fa fa-history"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <br>
+  
+  <div id="AlbumTracks" class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <tabs>
+        <pane title="Discography">
+          <br>
+          <ul class="list-group">
+            <li class="list-group-item">Genre: {{music.genre}}</li>
+            <li class="list-group-item">Author: {{music.author}}</li>
+            <li class="list-group-item">Publisher: {{music.publisher}}</li>
+            <li class="list-group-item">Pages: {{music.pages}}</li>
+          </ul>
+        </pane>
+        <pane title="Videos">
+          <br>
+          <span>Date: {{ '1999-04-06' | date:'fullDate' }}</span><br>
+          <span>Currency: {{ 123456 | currency }}</span><br>
+          <span>Number: {{ 98765.4321 | number }}</span><br>
+        </pane>
+        <pane title="Similar Artist">
+          <br>
+          <div ng-controller="BeerCounter">
+            <div ng-repeat="beerCount in beers">
+              <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+            </div>
+          </div>
+        </pane>
+        <pane title="About The Artist">
+          <br>
+          <div>
+            <p>Hello</p>
+          </div>
+        </pane>
+        <pane title="Follow">
+          <br>
+          
+        </pane>
+      </tabs>
+    </div>
+  </div>
+
+</div>

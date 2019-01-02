@@ -1,0 +1,55 @@
+<section id="mediaPlayer" class="mediaPlayerPane affix" ng-if="playerInitialized">
+	<div class="container">
+		<div class="row">
+			<div id="player" class="player-gui player-interface">
+                <div><marquee>SonReal - LA (Prod. Chin Injetti)<span class="label">Explicit</span></marquee></div>
+				<ul id="controls" class="player-controls">
+    				<li>
+    					<button id="playButton" class="player-play" ng-if="stopped" ng-click="play();">▶ play</button>
+    					<button id="pauseButton" class="player-pause" ng-if="playing" ng-click="pause();">⏸ pause</button>
+    				<li>
+						<button id="stopButton" class="player-stop" ng-click="stop();">⏹ stop</button>
+                    </li>
+                    <li hidden="">
+                        <button id="nextButton" class="player-next" ng-click="next();">⏭ next</button>
+                        <button id="prevButton" class="player-prev" ng-click="prev();">⏮ prev</button>
+                    </li>
+                    <li hidden="">
+                        <button id="shuffleButton" class="player-shuffle">🔀 shuffle</button>
+                    </li>
+                    <li hidden="">
+                        <button id="repeatButton" class="player-repeat">🔁 repeat</button>
+                        <button id="repeatOneButton" class="player-repeat-one">🔂 repeat one</button>
+                    </li>
+    			</ul>
+    			<div id="progressBar" class="player-progress">
+					<div class="range-slider player-seek-bar" style="width: 100%;">
+						<input type="range" id="seekBar" name="duration" class="range-slider__range" min="0" max="{{showDuration}}" step="0.01" tabindex="-1" ng-model="duration">
+						<span class="range-slider__value">{{updateCurrentTime(duration)}}</span>
+    					<div class="player-play-bar" style="width: 5.37886%;"></div>
+    				</div>
+    				<div class="player-time-holder">
+    					<div class="player-current-time">{{showCurrentTime}}</div>
+    					<div class="player-duration">{{getDuration()}}</div>
+    				</div>
+				</div>
+    			<div id="volumeLine" class="player-volume-bar">
+                    <input id="volumeBar" type="range" name="volume" class="volume volumeControl" min="0" max="100" step="1" tabindex="-1" ng-model="volume"/>
+                    <ul>
+                        <li><a href="javascript:;" class="player-mute ui-link" tabindex="1" title="mute">🔇 mute</a></li>
+                        <li><a href="javascript:;" class="player-unmute ui-link" tabindex="1" title="unmute" style="display: none;">🔈 unmute</a></li>
+                        <li><a href="javascript:;" class="player-volume-min ui-link" tabindex="1" title="unmute" style="display: none;">🔉 min volume</a></li>
+                        <li><a href="javascript:;" class="player-volume-max ui-link" tabindex="1" title="max volume">🔊 max volume</a></li>
+                    </ul>
+    				<div class="player-volume-bar-value" style="width: 80%;">
+                        <span>{{updateVolume(volume)}}</span>
+					</div>
+				</div>
+                <div hidden="">
+                    <a id="download-btn" href="http://schrodingersblog.com/sound/tune-dex/MothsWings.mp3" style="padding:.3em 18px" class="" target="_blank" rel="nofollow" download="">Download</a>
+                </div>
+			</div>
+
+		</div>
+	</div>
+</section>

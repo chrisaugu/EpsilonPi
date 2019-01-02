@@ -1,0 +1,71 @@
+<nav class="navbar navbar-default navbar-inverseX navbar-top navbar-fixedx-top navbar-static-top navbar-custom user_logged_in orange" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#/" class="navbar-brand" rel="nofollow">
+        <i class="logo-icon"></i> Epsilon Pi
+      </a>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse" aria-expanded="true">
+
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="active"><a href="#/">Home</a></li>
+        <li class=""><a href="#/musics/add">Add music</a></li>
+        <li class=""><a href="#/legal">Legal</a></li>
+        <li class=""><a href="#/home">Tests</a></li>
+        <li class=""><a href="#/stats">Stats</a></li>
+
+        <li ng-if="isAuthenticated() && currentUser.username">
+          <a href="https://www.facebook.com/{{currentUser.username}}">
+            <img class="media-object img-rounded" ng-src="{{currentUser.picture}}">
+            @{{currentUser.username}}
+          </a>
+        </li>
+
+        <li ng-repeat="navlink in _nav_links">
+          <a href="{{navlink.url_path}}">
+            <i class="icon ion-{{navlink.icon}} ion-cog">&nbsp;</i>{{navlink.link_title}}
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav navbar-nav navbar-left pull-left col-lg-6 col-md-6 col-sm-6 col-xs-7" ng-controller="SearchController" style="width: 472px; margin-right: 15px; height: 50px;">
+        
+        <form id="search" class="navbar-form navbar-search form-inline" autocomplete="off" ng-submit="doSearch();" name="search" role="search">
+          <input id="key" name="key" type="hidden" value="e1da5b6b50cc6236c33ae32c45e58cd3c42bdfe4">
+
+          <input type="hidden" name="field" value="title" ng-model="field">
+
+          <div class="form-group has-feedback" style="display: block;">
+            <!-- <span class="input-group-addon" id="basic-addon3"><i class="fa fa-search"></i></span> -->
+                        
+            <div class="input-group input-group-md">
+              <input type="text" name="q" id="searchinput" size="30" value="" class="form-control inputbox search-query ui-autocomplete-input" autocomplete="off" autocorrect="off" aria-describedby="basic-addon3" aria-label="filter friends"  placeholder="Search song title, album, artist, lyric" ng-model="searchQuery" (ngmodelchange)="searchOnInput()" xstyle="padding-right: 12px;padding: 0 5px;width: 360px;height: 34px;color: #39464E;font-size: 13px;background: #ffffff;/* border: 1px solid #ce2b01; */border-radius: 0px;outline: 0;box-sizing: border-box;vertical-align: middle;-webkit-appearance: none;-moz-appearance: none;"/>
+
+              <input type="hidden" name="ajax" id="ajax" value="1">
+              <span class="input-group-btn"><button type="submit" class="btn btn-primary" ng-disabled="search.$invalid"><span class="fa fa-search" aria-hidden="true"></span></button>
+            </span>
+            </div>
+
+          </div>
+
+          <loading-spinner [isidle]="isIdle" [isloading]="isLoading"></loading-spinner>
+          <ul class="example-animate-container">
+            <li class="animate-repeat" ng-repeat="friend in friends | filter:q as results">
+              [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old goes to {{friend.school}}.
+            </li>
+            <li class="animate-repeat" ng-if="results.length == 0">
+              <strong>No results found...</strong>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div> <!--/.nav-collapse -->
+  </div>
+</nav><!--/.nav-collapse -->

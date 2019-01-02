@@ -1,0 +1,49 @@
+<div id="post" ng-init="getPost()">
+  <div class="panel-body">
+    <div class="row panel">
+		<div class="col-md-12 padd post-item">
+			<div class="col-md-12">
+				<div class="post_user_d">
+					<div class="user_dp_sm">
+						<a href="{{post.user_link}}" title="{{post.user}}">
+							<img class="dp_sm" src="./images/icon.png">
+						</a>
+					</div>
+					<div class="post_user_credit">
+						<a href="{{post.user_link}}" class="displayname" title="{{post.user}}">Christian Augustyn</a>
+						<a href="{{post.user_link}}" class="username" title="{{post.user_name}}">@kitten</a></div>
+					</div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 😃😄🤣</p>
+				<a class="post-link" href="#/posts/post_image_url{{user.post_image_url}}" title="Click to view image">
+					<div class="caption"><div class="caption-content">
+						<i class="fa fa-search-plus fa-3x"></i>
+					</div></div>
+					<img class="thumbnail" src="./images/DSCF0811.jpg">
+				</a>
+				<div class="post_action">
+					<a class="btn btn-primary" href="#/posts/details/{{user._id}}"><i class="fa fa-heart-o">&nbsp;</i>react</a>
+					<a class="btn btn-primary" href="#/posts/details/{{user._id}}"><i class="fa fa-comment-o">&nbsp;</i>comment</a>
+					<a class="btn btn-primary" href="#/posts/details/{{user._id}}"><i class="fa fa-share">&nbsp;</i>share</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	  <div class="row" ng-repeat="post in posts">
+		  <div class="col-md-12">
+			  <div class="col-md-12">
+				  <h4>{{post.post_details}}</h4>
+				  <p>{{post.post_details}}</p>
+				  <img class="thumbnail" src="{{post.post_image_url}}">
+				  <a class="btn btn-primary" href="#/posts/details/{{user._id}}">View Post</a>
+			  </div>
+		  </div>
+	  </div>
+
+  </div>
+</div>

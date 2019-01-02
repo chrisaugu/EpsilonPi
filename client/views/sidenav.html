@@ -1,0 +1,43 @@
+<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 borderRight">
+  <div id="EpsilonPiPlayerNavigation">
+
+    <div id="" ng-if="!isAuthenticated()">
+      <a ng-click="signInWithFb()">
+        <img src="/assets/img/sign-in-facebook.svg" style="border-radius:46px;">
+      </a>
+    </div>
+    
+    <div ng-if="isAuthenticated() && currentUser.username">
+      <a href="https://www.facebook.com/{{currentUser.username}}">
+        <img class="media-object img-rounded" ng-src="{{currentUser.picture}}">
+        @{{currentUser.username}}
+      </a>
+      <a ng-click="logout()" href="#/">Logout</a>
+    </div>
+
+    <br>
+
+    <ul class="LeftSideNavList">
+      <li class="LeftSideNavList--Item" ng-class="{'active': deviceInfo == devInfo}">
+        <a href="#/now_playing">Now Playing</a>
+      </li>
+    </ul>
+
+    <br>
+    
+    <ul class="LeftSideNavList">
+      <li class="LeftSideNavList--Item" ng-class="{'active': deviceInfo == devInfo}">
+        <a href="#/browse">Browse</a>
+      </li>
+      <li class="LeftSideNavList--Item" ng-class="{'active': deviceInfo == devInfo}">
+        <a href="#/radio">Radio</a>
+      </li>
+      <li class="LeftSideNavList--Item" ng-class="{'active': selected}">
+        <a href="#/discover">Discover</a>
+      </li>
+      <li class="LeftSideNavList--Item" ng-class="{'active': deviceInfo == devInfo}">
+        <a href="#/charts">Charts</a>
+      </li>
+    </ul>
+  </div>
+</div>
