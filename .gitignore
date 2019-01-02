@@ -1,4 +1,4 @@
 node_modules
 epsilonpi.sublime-project
 server/.env
-client/vendor
+client/vendor/*
