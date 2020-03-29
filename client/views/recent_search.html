@@ -1,25 +1,23 @@
 <div xng-show="image1" class="panel panel-default" ng-controller="SearchController">
-  <div class="panel-heading">
-    <h3 class="panel-title">Recent searches</h3>
-  </div>
-  <div class="panel-body">
-    <!-- <div class="row row-centered"> -->
-      <ul class="MostDownloadableMusicList list-unstyled" ng-init="getRecentSearches()">
-        <li class="MostDownloadableMusicList--Item" ng-repeat="search in recent_searches">
-          <a class="" href="#/search?q={{search.title}}">
-            <small>{{search.title}}</small>
-          </a>
-        </li>
-      </ul>
-      <ul class="nav nav-pills nav-stacked" xng-model="devInfo" hidden="">
-        <li ng-class="{'active': deviceInfo == devInfo}" xng-repeat="deviceInfo in deviceInfoList">
-          <a href="#" ng-click="loadDeviceInfo(deviceInfo.serial);">
-            {{ deviceInfo.model }}
-            <small>({{ deviceInfo.serial }})</small>
-          </a>
-        </li>
-      </ul>
-    <!-- </div> -->
+  <div class="xrow">
+    <ul class="collection MostDownloadableMusicList list-unstyled" ng-init="getRecentSearches()">
+      <li class="collection-header">
+        <h5>Recent searches</h5>
+      </li>
+      <li class="collection-item MostDownloadableMusicList--Item" ng-repeat="search in recent_searches | limitTo: 3">
+        <a class="" href="#/search?q={{search.title}}">
+          <small>{{search.title}}</small>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav nav-pills nav-stacked" xng-model="devInfo" hidden="">
+      <li ng-class="{'active': deviceInfo == devInfo}" xng-repeat="deviceInfo in deviceInfoList">
+        <a href="#" ng-click="loadDeviceInfo(deviceInfo.serial);">
+          {{ deviceInfo.model }}
+          <small>({{ deviceInfo.serial }})</small>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 

@@ -1,0 +1,35 @@
+<nav class="red" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" routerLink="/" routerLinkActive="active" class="brand-logo">EpsilonPi</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a routerLink="/now_playing">Now playing</a></li>
+      <li><a routerLink="/artists">Artists</a></li>
+      <li><a routerLink="/albums">Albums</a></li>
+      <li><a routerLink="/tracks">Tracks</a></li>
+      <li><a routerLink="/radio">Radio</a></li>
+      <li><a routerLink="/charts">Charts</a></li>
+      <li><a routerLink="/playlists">Playlists</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="sidenav">
+      <li><a routerLink="/">Navbar Link</a></li>
+      <li><a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a></li>
+      <li><a routerLink="/heroes" routerLinkActive="active">Heroes</a></li>
+      <li><a routerLink="/now_playing">Now playing</a></li>
+      <li><a routerLink="/artists">Artists</a></li>
+      <li><a routerLink="/tracks">Tracks</a></li>
+      <li><a routerLink="/radio">Radio</a></li>
+      <li><a routerLink="/charts">Charts</a></li>
+      <li><a routerLink="/playlists">Playlists</a></li>
+    </ul>
+
+    <div hidden class="input-field col s12">
+      <i class="material-icons prefix">textsms</i>
+      <input type="text" id="autocomplete-input" class="autocomplete">
+      <label for="autocomplete-input">Autocomplete</label>
+    </div>
+
+    <a data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+  </div>
+</nav>

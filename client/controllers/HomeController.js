@@ -1,6 +1,5 @@
 angular.module('EpsilonPi')
-.controller('HomeCtrl', ["$scope", "$rootScope", "$http", "$location", "$routeParams", "API", "arrayToSentence", 
-	function($scope, $rootScope, $http, $location, $routeParams, API, arrayToSentence) {
+.controller('HomeCtrl', function($scope, $rootScope, $http, $location, $routeParams, /*API, arrayToSentence*/) {
 	console.log('HomeCtrl loaded...');
 
 	var picturesRef;
@@ -18,7 +17,7 @@ angular.module('EpsilonPi')
 		// alert("error");
 	};
 
-	$http.get('images.json').then(success, error);
+	$http.get('images.json').success(success, error);
 
 	$scope.image1 = 1;
 
@@ -180,4 +179,4 @@ angular.module('EpsilonPi')
 	$scope.arrayToSentence = function(arr, opts) {
 		return arrayToSentence.arrayToSentence(arr, opts);
 	};
-}]);
+});

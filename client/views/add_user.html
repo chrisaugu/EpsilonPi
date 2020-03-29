@@ -1,18 +1,18 @@
-<div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
-    <label>Name: <input type="text" ng-model="settings.name"/></label>
-    <button ng-click="settings.greet()">greet</button><br/>
+<div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings_ctrl">
+    <label>Name: <input type="text" ng-model="settings_ctrl.name"/></label>
+    <button ng-click="settings_ctrl.greet()">greet</button><br/>
     Contact:
     <ul>
-        <li ng-repeat="contact in settings.contacts">
+        <li ng-repeat="contact in settings_ctrl.contacts">
             <select ng-model="contact.type" aria-label="Contact method" id="select_{{$index}}">
                 <option>phone</option>
                 <option>email</option>
             </select>
             <input type="text" ng-model="contact.value" aria-labelledby="select_{{$index}}" />
-            <button ng-click="settings.clearContact(contact)">clear</button>
-            <button ng-click="settings.removeContact(contact)" aria-label="Remove">X</button>
+            <button ng-click="settings_ctrl.clearContact(contact)">clear</button>
+            <button ng-click="settings_ctrl.removeContact(contact)" aria-label="Remove">X</button>
         </li>
-        <li><button ng-click="settings.addContact()">add</button></li>
+        <li><button ng-click="settings_ctrl.addContact()">add</button></li>
     </ul>
 </div>
 <a href="#/users">Go Back</a>

@@ -1,0 +1,71 @@
+<div id="Playlist--Content" class="" ng-init="getPlaylist()">
+  
+  <div id="AlbumDetails" class="row playlistAlbumCover">
+    <div id="AlbumArt" class="col-lg-3 col-md-3 col-sm-3 albumCovers" ng-if="track" ng-repeat="music in playlist.songs.toString()">
+      <img class="playlist-music-album" ng-src="{{music.album_art}}"/>
+      <div class="AlbumArt">
+        <img src="http://localhost/christianaugustyn/image.php?u=DSCF0811.jpg">
+      </div>
+      <div class="track-cover" [class.hasnotrack]="!track || !getArtworkUrl()">
+        <div ngif="track &amp;&amp; getArtworkUrl()" class="cover">
+          <img [src]="getArtworkUrl()">
+        </div>
+        <div ng-if="!track || !getArtworkUrl()" class="no-track">
+        </div>
+      </div>
+    </div>
+    <div class="albumCovers" ng-if="!track || !hasTrack">
+        <figure>
+          <img src="generated/images/guide/setup-local/app-works.png" alt="Welcome to my-app!" width="297" height="347">
+        </figure>
+      <!-- <img class="playlist-music-album" width="150" src="/assets/img/icon.png"/> -->
+    </div>
+
+    <div id="AlbumMetadata" class="col-lg-9 col-md-9 col-sm-9 ">
+      <h1><a ng-href="#/now_playing/5b12af35297f2b2c145be6bd">{{playlist.name}}</a></h1>
+      <ul class="list-inline list-unstyled">
+        <li class="list-item">By <a ng-href="#/users/details/{{playlist.ownerId}}">{{playlist.contributorsId[0]}}</a></li>·
+        <li class="list-item">{{playlist.create_date | date:'MM/dd/yyyy @ h:mma'}}</li>·
+        <li class="list-item" getTracks().length>{{playlist.songs.length}} tracks</li>·
+        <li class="list-item">50 min</li>
+      </ul>
+      <ul class="list-inline">
+        <li><button *ng-hide="isPlaying" ng-click="play();" music-src="getMusicSrc()" play-all="songs">▶ play all</button></li>
+      </ul>
+    </div>
+
+  </div>
+  
+  <div id="AlbumTracks" class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+      <div xng-init="getSongsInPlaylist()" class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title inline">Playlist</h3>
+          <a href="#" class="inline floatr" title="Play all music" ng-click="playAll()">[Play all ▶]</a>&nbsp;
+          <a href="#" class="inline floatr" title="Shuffle" ng-click="shuffle(this)">[Shuffle]</a>
+        </div>
+        <div class="panel-body">
+          <div class="row row-centered">
+            <ul class="MostDownloadableMusicList list-unstyled">
+              <li class="MostDownloadableMusicList--Item" ng-if="track" ng-repeat="music in playlist.songs.toString()">
+                <div class="">
+                  <a class="" href="#/playlists/details/{{music.id}}">
+                    <small>{{music.title}}</small>
+                    <play-button music-src="{{music.url}}"></play-button>
+                    <button music-player="play" add-song="song">{{ song.title }}</button>
+                    <button music-player add-song="song">+</button>
+                  </a>
+                </div>
+              </li>
+              <li ng-if="!track">
+                <strong>No tracks for this playlist...</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

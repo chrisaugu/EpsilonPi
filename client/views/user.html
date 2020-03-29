@@ -1,72 +1,29 @@
-<div class="center-form">
-  
-  <a href="#/users">Go Back</a>
-
-  <div xng-if="!isAuthenticated()" class="panel">
-    <div class="panel-body">
-      <h4 class="text-center"><i class="ion-log-in"></i> Log in</h4>
-
-      <div ng-if="isAuthenticated() && currentUser.username">
-        <div class="row">
-          <div ng-repeat="photo in photos" class="col-lg-2 col-sm-3 col-xs-4">
-            <a href="#/photo/{{photo.id}}">
-            <img ng-src="{{photo.images.standard_resolution.url}}" class="thumbnail img-responsive">
-            </a>
-          </div>
+<div class="container">
+  <form class="form" ng-submit="submit(sex)">
+    <p>Please fill this form before continuing with the experiment</p>
+    <div class="form-group">
+      <label for="userID">UserID</label>
+      <p>Automatically assigned ID (cannot be edited)</p>
+      <input type="userID" class="form-control" id="userID" ng-model="user.id" value="{{user.id}}" disabled>
+    </div>
+    <div class="form-group">
+      <label for="year">YearOfBirth</label>
+      <p>What year are you born in?</p>
+      <input type="number" class="form-control" name="year" ng-model="user.yob" id="year" min="1915" max="2010" ng-init="user.yob=user.yob" required/>
+    </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="radio">
+          <label><input type="radio" name="sex" value="male" ng-model="user.gender" required>Male</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sex" value="female" ng-model="user.gender">Female</label>
         </div>
       </div>
-
-      <div ng-if="!isAuthenticated()">
-        <div class="jumbotron">
-          <h2><i class="ion-images"></i> Facebook</h2>
-          <p>This is a basic Instagram clone powered by <strong>Satellizer</strong>. To continue, please log in with your Instagram account or create a new email account.</p>
-          <p>
-            <a class="btn btn-lg btn-success" href="#/login"><i class="ion-log-in"></i> Log in</a>
-            <a class="btn btn-lg btn-primary" href="#/signup"><i class="ion-person-add"></i> Create account</a>
-          </p>
-        </div>
-      </div>
-
-      <div ng-if="isAuthenticated() && !currentUser.username" class="center-form panel">
-        <div class="panel-body">
-          <h5 class="text-center"><i class="ion-link"></i> Link Account</h5>
-          <p>To complete the registration process you must link your Instagram account.</p>
-          <button class="btn btn-block btn-instagram" ng-click="linkInstagram()">
-            <i class="ion-social-instagram"></i> Sign in with Instagram
-          </button>
-        </div>
-      </div>
-
-      <button class="btn btn-block btn-instagram" ng-click="instagramLogin()">
-        <i class="ion-social-instagram"></i> Sign in with Instagram
-      </button>
-
-    </div>
-  </div>
-  <div ng-if="isAuthenticated()" class="panel panel-default" ng-init="getUser()">
-    <div class="panel-heading">
-    <h3 class="panel-title">{{cn_user.title}}</h3>
-    </div>
-    <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-      <img src="{{cn_user.image_url}}">
-      </div>
-      <div class="col-md-8">
-      </p>{{cn_user.bio}}</p>
-      <ul class="list-group">
-        <li class="list-group-item">Gender: {{cn_user.gender}}</li>
-        <li class="list-group-item">Author: {{cn_user.author}}</li>
-        <li class="list-group-item">Publisher: {{cn_user.publisher}}</li>
-        <li class="list-group-item">Pages: {{cn_user.profile}}</li>
-      </ul>
-      <a target="_blank" href="{{cn_user.profile}}" class="btn btn-primary">View Profile</a>
-      </div>
-    </div>
-    </div>
-  </div>
-
-  <div class="pull-right">
-    <a href="#/users/edit/{{cn_user._id}}">Edit</a> |  <a href="#" ng-click="deleteUser(cn_user._id)">Delete</a>
-  </div>
+      <nav class="navigation center-block">
+        <ul class="pager">
+          <li><button class="nextButton" type="submit"  href="#">Next <span aria-hidden="true">&rarr;</span></button></li>
+        </ul>
+      </nav>
+  </form>
 </div>

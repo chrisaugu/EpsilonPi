@@ -1,0 +1,73 @@
+<div id="player" class="player mediaPlayerPane affix" ng-hide="hidePlayer">
+  <div class="container">
+    <div class="row">
+      <div id="player" class="player-gui player-interface">
+        <div class="player-track-info-holder">
+          <img class="player-cover" ng-src="getMusicSrc()">
+          <marquee>SonReal - LA (Prod. Chin Injetti)</marquee>
+        </div>
+        <ul id="controls" class="player-controls list-inline">
+          <li>
+            <button (click)="play()" ng-hide="isPlaying">▶</button>
+            <button (click)="pause()" (show)="isPlaying">⏸</button>
+          </li>
+          <li>
+<!--            <button stop-button data-track-id="{{trackId}}">⏹</button>-->
+          </li>
+          <li hidden="">
+            <button (click)="prev();">⏮</button>
+            <button (click)="next();">⏭</button>
+          </li>
+          <li>
+            <button id="shuffleButton" class="btn btn-small btn-round player-shuffle" (click)="toggleShuffle()" [disabled]="!repeat">🔀</button>
+          </li>
+          <li>
+            <div hidden="" class="switch">
+              <label>Repeat
+                <input type="checkbox">
+                <span class="lever"></span>
+                Repeat One
+              </label>
+            </div>
+            <button id="repeatButton" class="btn btn-small btn-round player-repeat" (click)="toggleRepeat()"><i [hidden]="!isRepeat">🔁</i><i ng-hide="isRepeat">🔂</i></button>
+          </li>
+        </ul>
+
+        <div id="progressBar" class="player-progress-bar-holder">
+          <div class="player-time-holder">
+<!--            <div class="player-current-time">{{showCurrentTime}}</div>-->
+            <div class="range-slider player-progress-bar" style="width: 100%;">
+              <input type="range" id="seekBar" name="duration" class="range-slider__range" min="0" max="100" step="0.01" tabindex="-1" ng-model="duration">
+<!--              <span class="range-slider__value">{{updateCurrentTime(duration)}}</span>-->
+            </div>
+<!--            <div class="player-duration">{{getDuration()}}</div>-->
+          </div>
+<!--          <mat-slider min="1" max="100" step="1" value="1"></mat-slider>-->
+          <div class="progress">
+            <div class="determinate" style="width: 70%"></div>
+          </div>
+        </div>
+
+        <div id="volumeLine" class="player-volume-bar">
+          <ul class="volumeUtil">
+            <li class="inactive">
+              <a href="javascript:;" class="player-mute ui-link" tabindex="1" title="mute" (click)="toggleMute()" (show)="!isMute">🔇 mute</a>
+              <a href="javascript:;" class="player-unmute ui-link" tabindex="1" title="unmute" (click)="toggleMute()" (show)="isMute">🔈 unmute</a>
+            </li>
+            <li class="inactive"><a href="javascript:;" music-volume class="player-volume-min ui-link" tabindex="1" title="min volume" data-type="minVolume">🔉 min volume</a></li>
+            <li class="inactive"><input id="volumeBar" type="range" name="volume" class="volume volumeControl" min="0" max="100" step="1" tabindex="-1" value="volume" /></li>
+            <li class="inactive"><a href="javascript:;" music-volume class="player-volume-max ui-link" tabindex="1" title="max volume" data-type="maxVolume">🔊 max volume</a></li>
+          </ul>
+          <div class="player-volume-bar-value" style="width: 80%;">
+<!--            <span>{{volume}}</span>-->
+          </div>
+        </div>
+
+        <div hidden="">
+          <a id="download-btn" href="http://schrodingersblog.com/sound/tune-dex/MothsWings.mp3" style="padding:.3em 18px" class="" target="_blank" rel="nofollow" download="">Download</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

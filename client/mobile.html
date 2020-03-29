@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mobile</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		.body {
+			max-width: 600px;
+			margin: 0 auto;
+			font-size: 20px;
+			padding: 0 1em;
+		}
+
+		.dark-theme {
+			background-color: #000000;
+			color: #FFFFFF;
+		}
+
+		.normal-theme {
+			background-color: #B8FFF7;
+			color: #C53131;
+		}
+
+		.light-theme {
+			background-color: #FFFFFF;
+			color: #000000;
+		}
+
+	</style>
+</head>
+<body class="normal-theme">
+	<h1>Mobile</h1>
+	<script type="text/javascript">
+		var tests = {
+			proximity: 'onuserproximity' in window,
+			light: 'ondevicelight' in window,
+			vibration: 'vibrate' in window.navigator,
+			notification: 'Notification' in window
+		};
+
+		var config = {
+			battery: {
+				lowThreshold: 0.15,
+				criticalThreshold: 0.05
+			},
+			vibration: {
+				lowThreshold: [500, 200, 500],
+				criticalThreshold: [1000]
+			},
+			notification: {
+				lowThreshold: {
+					title: 'Battery level: low',
+					message: 'Please charge your device to avoid the the audio to be automatically paused.'
+				},
+				criticalThreshold: {
+					title: 'Battery level: critical',
+					message: 'The audio has been stopped to avoid the shutdown of your device.'
+				}
+			},
+			light: {
+				darkThreshold: 50,
+				normalThreshold: 1000
+			}
+		};
+
+		if (tests.proximity) {
+			window.addEventListener('userproximity', (event) => {
+				if (event.near) {
+					document.bgBody = 'blue';
+				}
+			});
+		};
+
+		if (tests.light) {
+			window.addEventListener('devicelight', (event) => {
+				var light = Math.round(event.value);
+
+				if (light < config.light.darkThreshold) {
+					document.body.className = 'dark-theme';
+				} else if (light < config.light.normalThreshold) {
+					document.body.className = 'normal-theme';
+				} else {
+					document.body.className = 'light-theme';
+				}
+			});
+		};
+
+		function manageBattery(battery) {
+			if (!battery.charging) {
+				if (!battery.level > config.battery.lowThreshold) {
+					return;
+				};
+
+				var isCritical = battery.level <= config.battery.criticalThreshold;
+				if (isCritical) {
+					document.bgBody = 'red';
+				};
+
+				if (tests.vibration) {
+					window.navigator.vibrate(
+						isCritical ? config.vibration.criticalThreshold : config.vibration.lowThreshold
+					);
+				};
+
+				if (tests.notification) {
+					Notification.requestPermission((permission) => {
+						if (permission !== 'denied') {
+							new Notification(
+								isCritical ? config.notification.criticalThreshold.title : config.notification.lowThreshold.title,
+								{
+									body: isCritical ? config.notification.criticalThreshold.message : config.notification.lowThreshold.message,
+								}
+							);
+						}
+					});
+				}
+			}
+		};
+
+		if (window.navigator.getBattery) {
+			window.navigator.getBattery().then((battery) => {
+				battery.addEventListener('levelchange', manageBattery.bind(window, battery));
+				manageBattery(battery);
+			});
+		} else if (window.navigator.battery) {
+			window.navigator.battery.addEventListener('levelchange', manageBattery.bind(window, window.navigator.battery));
+			manageBattery( window.navigator.battery);
+		};
+
+	</script>
+</body>
+</html>

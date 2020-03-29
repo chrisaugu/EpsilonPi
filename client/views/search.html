@@ -37,8 +37,7 @@
 								</div>
 								<div class="pull-right">
 									<button class="btn btn-primary" download ng-click="download()">Download</button>
-									<!-- <button class="btn btn-primary" ng-controller="MusicPlayerController" ng-click="play()">Play MP3</button> -->
-									<button class="btn btn-primary" ng-click="play()">Play MP3</button>
+									<button class="btn btn-primary" ng-click="play({result.url})">Play MP3</button>
 								</div>
 							</div>
 						</li>
@@ -62,9 +61,8 @@
 								<span>Bitrate {{result.artist}}</span>
 							</div>
 							<div class="pull-right">
-								<button class="btn btn-primary">Download</button>
-								<!-- <button class="btn btn-primary" ng-controller="MusicPlayerController" ng-click="play()">Play MP3</button> -->
-								<button class="btn btn-primary">Play MP3</button>
+								<button class="btn btn-primary" download ng-click="download()">Download</button>
+								<button class="btn btn-primary" ng-click="play()">Play MP3</button>
 							</div>
 						</div>
 					</li>

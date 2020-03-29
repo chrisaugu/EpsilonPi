@@ -1,5 +1,4 @@
 angular.module('tab', ['components'])
- 
 .controller('BeerCounter', function($scope, $locale) {
   $scope.beers = [0, 1, 2, 3, 4, 5, 6, 7];
   if ($locale.id == 'en-us') {

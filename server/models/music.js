@@ -11,16 +11,16 @@ const musicSchema = new Schema({
 	year: {type: Date },
 	duration: {type: String	},
 	bitrate: {type: Number},
-	lyrics: {type: String	},
+	lyrics: {type: String },
 	url: {type: String },
 	copyright: {type: String },
 	quality: {type: String },
 	size: {type: Number },
 	playback_count: {type: Number },
-	played: {type: Date },
+	last_played: {type: Date },
 	download_count: {type: Number },
 	rating: {type: Number },
-	added: {type: Date, default: Date.now },
+	added: {type: Date, default: Date.now() }
 });
 
 const Music = module.exports = restful.model('Music', musicSchema);

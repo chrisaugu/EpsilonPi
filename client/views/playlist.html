@@ -1,0 +1,44 @@
+<div ng-init="getPlaylists()" xng-show="hasPlaylist" class="panel panel-default">
+  <div class="card sticky-action blue-grey darken-1">
+    <div class="card-image waves-efffect waves-block waves-light">
+      <img class="activator" src="./images/DSCF0811.jpg">
+      <span class="card-title">Hello</span>
+      <a class="btn-floating halfway-fab waves-efffect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+    <div class="card-content white-text">
+      <ul class="collection MostDownloadableMusicList list-unstyled">
+        <li class="collection-item MostDownloadableMusicList--Item" ng-if="hasPlaylist" ng-repeat="playlist in playlists.toString() | limitTo: 3">
+          <div class="" ng-class-odd="'odd'" ng-class-even="'even'">
+            <a class="inline" href="#/playlists/details/{{playlist.id}}">
+              <small>{{playlist.title}}&nbsp;</small>
+            </a>
+            <delete-playlist-button class="" data-playlist-id="{{playlist.id}}" ng-click="deletePlaylist(playlist.id)"></delete-playlist-button>
+          </div>
+        </li>
+        <li ng-if="!hasPlaylist">
+          <strong>No playlist...</strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="xrow">
+    <ul class="collection MostDownloadableMusicList list-unstyled">
+      <li class="collection-header">
+        <h5 class="inline">Playlists</h5>
+        <a href="#" class="inline floatr" title="Create new playlist" ng-click="createNewPlaylist()">[+]</a>
+      </li>
+      <li class="collection-item MostDownloadableMusicList--Item" ng-if="hasPlaylist" ng-repeat="playlist in playlists.toString() | limitTo: 3">
+        <div class="" ng-class-odd="'odd'" ng-class-even="'even'">
+          <a class="inline" href="#/playlists/details/{{playlist.id}}">
+            <small>{{playlist.title}}&nbsp;</small>
+          </a>
+          <delete-playlist-button class="" data-playlist-id="{{playlist.id}}" ng-click="deletePlaylist(playlist.id)"></delete-playlist-button>
+        </div>
+      </li>
+      <li ng-if="!hasPlaylist">
+        <strong>No playlist...</strong>
+      </li>
+    </ul>
+  </div>
+</div>

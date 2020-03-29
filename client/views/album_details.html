@@ -1,85 +1,73 @@
-<div class="detail container">
-    <div class="row">
-        <div class="col-xs-4 detail-image">
-            <img src="/images/mugs-400x500/#{booking.image}">
-        </div>
-        <div class="col-xs-8">
-            <h2 class="booking name"></h2>
-        </div>
-        <div class="row">
-            <div class="detail-stats">
-                <ul class="list-inline">
-                    <li>
-                        <span> #{booking.rating} |Elo rating</span>
-                    </li>
-                    <li>
-                        <span> #{booking.wins} |Wins</span>
-                    </li>
-                    <li>
-                        <span> #{booking.losses} |Losses </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<a href="#/musics">Go Back</a>
+<div class="pull-right">
+  <a href="#/musics/edit/{{music._id}}">Edit</a> <!-- | <a href="#" ng-click="removeMusic(music._id)">Delete</a> -->
 </div>
 
-<div class="container">
+<div id="MusicAlbum--Content" ng-init="getMusic()">
 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="row">
-
-        <div class="col-xs-6">
-          <img ng-src="{{photo.images.standard_resolution.url}}" class="img-responsive">
-        </div>
-
-        <div class="col-xs-6">
-          <div class="caption">
-            <h5><a href="http://instagram.com/{{photo.user.username}}">{{photo.user.username}}</a></h5>
-            <h6 class="text-muted"><i class="ion-clock"></i> {{photo.created_time * 1000 | date:'short'}}</h6>
-
-            <p>{{photo.caption.text}}</p>
-
-          </div>
-        </div>
-
+  <div id="AlbumDetails" class="row">
+    
+    <div id="AlbumArt" class="col-lg-3 col-md-3 col-sm-3 ">
+      <div class="AlbumArt">
+        <img src="{{music.album_art}}">
       </div>
+      <div class="track-cover" [class.hasnotrack]="!track || !getArtworkUrl()">
+        <div ngif="track &amp;&amp; getArtworkUrl()" class="cover">
+          <img [src]="getArtworkUrl()">
+        </div>
+        <div ngif="!track || !getArtworkUrl()" class="no-track">
+          <cloud-player-logo [animate]="animate"></cloud-player-logo>
+        </div>
+      </div>
+    </div>
+  
+    <div id="AlbumMetadata" class="col-lg-9 col-md-9 col-sm-9 ">
+      <h1><a href="#/now_playing/{{music._id}}">{{music.title}}</a></h1>
+      <ul class="list-inline list-unstyled">
+        <li class="list-item">By <a href="#/artists/details/{{music.artist}}">{{music.author}}</a></li>·
+        <li class="list-item">2013</li>·
+        <li class="list-item">{{getTracks().length}} 15 tracks</li>·
+        <li class="list-item">50 min</li>
+      </ul>
+      <add-to-queue-button music-src="getMusicSrc()"></add-to-queue-button>
+      <add-to-playlist-button music-src="getMusicSrc()"></add-to-playlist-button>
+      <play-button music-src="getMusicSrc()"></play-button>
+    </div>
 
-      <div class="row">
+  </div>
 
-        <div class="col-xs-12">
-          <h5><i class="ion-heart text-danger"></i> {{photo.likes.count}} likes</h5>
-
-          <hr class="soften">
-          <h5 class="text-center"><i class="ion-chatbox-working text-primary"></i> Comments</h5>
-
-          <ul class="media-list">
-            <li ng-repeat="comment in photo.comments.data" class="media">
-              <a class="pull-left" href="http://instagram.com/{{comment.from.username}}">
-                <img class="media-object img-rounded" ng-src="{{comment.from.profile_picture}}">
-              </a>
-              <div class="media-body">
-                <a class="media-heading" href="http://instagram.com/{{comment.from.username}}">@{{comment.from.username}}</a>
-                {{comment.text}}
-              </div>
-            </li>
-            <li ng-if="!photo.comments.data.length">No comments</li>
+  <br>
+  
+  <div id="AlbumTracks" class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <tabs>
+        <pane title="Discography" ng-init="getTracks()">
+          <br>
+          <ul class="list-group" ng-repeat="track as tracks">
+            <li class="list-group-item">Genre: {{track.genre}}</li>
+            <li class="list-group-item">Author: {{track.author}}</li>
+            <li class="list-group-item">Publisher: {{track.publisher}}</li>
+            <li class="list-group-item">Pages: {{track.pages}}</li>
           </ul>
-
-          <hr class="soften">
-
-          <div class="btn-group">
-            <button class="btn" ng-class="{ 'btn-danger': hasLiked, 'btn-default': !hasLiked }" ng-click="like()">
-              <i class="ion-heart" ng-class="{ 'text-danger': !hasLiked}"></i>
-              <span ng-if="hasLiked">Liked</span>
-              <span ng-if="!hasLiked">Like</span>
-            </button>
+        </pane>
+        <pane title="Videos">
+          <br>
+          <span>Date: {{ '1999-04-06' | date:'fullDate' }}</span><br>
+          <span>Currency: {{ 123456 | currency }}</span><br>
+          <span>Number: {{ 98765.4321 | number }}</span><br>
+        </pane>
+        <pane title="Similar Artist">
+          <br>
+          <div ng-controller="BeerCounter">
+            <div ng-repeat="beerCount in beers">
+              <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+            </div>
           </div>
-
-        </div>
-      </div>
-
+        </pane>
+        <pane title="Follow">
+          <br>
+        </pane>
+      </tabs>
     </div>
   </div>
 

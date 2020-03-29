@@ -1,18 +1,11 @@
 <div class="container">
-    <div class="row">
-        <center>
-            <h2>{{technique}}</h2>
-        </center>
-        <hr/>
-    </div>
-    <div ng-hide="finished || description">
+    <div class="row" xng-hide="finished || description">
         <div ng-show="image1" class="row row-centered">
             <div class="col-lg-6 col-md-6 col-xs-12 col-centered">
-                <a><img class="img img-thumbnail dark" ng-src="/src/img/{{image1}}" ng-click="vote(image1, image2)" />
-                </a>
+                <a><img class="img img-thumbnail dark" ng-src="/images/{{image1}}" ng-click="vote(image1, image2)" /></a>
             </div>
             <div class="col-lg-6 col-md-6 col-xs-12 col-centered">
-                <a><img class="img img-thumbnail dark" ng-src="/src/img/{{image2}}" ng-click="vote(image2, image1)" />
+                <a><img class="img img-thumbnail dark" ng-src="/images/{{image2}}" ng-click="vote(image2, image1)" />
                 </a>
             </div>
         </div>

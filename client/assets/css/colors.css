@@ -15,8 +15,7 @@ Layout:      Responsive
 Platforms:   Mobile & Tablet
 -----------------------------
 
-
-
+ */
 @charset "UTF-8";
 
 /* 1. General */
@@ -25,7 +24,6 @@ Platforms:   Mobile & Tablet
 body{
     background: #FAFAFA fixed;
 }
-
 .bg-blue1{      background-color:#3498db!important;  }
 .bg-blue2{      background-color:#2980b9!important;  }
 .bg-magenta1{   background-color:#9b59b6!important;  }
@@ -744,54 +742,3 @@ user agent stylesheetpre, xmp, plaintext, listing {
     white-space: pre;
     margin: 1em 0px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,6 +2,8 @@ angular.module('EpsilonPi')
 .controller('NowPlayingCtrl', function($scope, $rootScope, $location, API, $http) {
   $scope.playerInitialized = false;
 
+  $rootScope.$broadcast('audio-player:hide', true);
+
   var mediaId = $location.path().split('/').pop();
 
   API.getMediaById(mediaId).success(function(media) {

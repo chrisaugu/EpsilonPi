@@ -3,8 +3,9 @@
  * https://github.com/shinnn/array-to-sentence
 */
 angular.module('EpsilonPi').factory("arrayToSentence", ["$rootScope", function($rootScope) {
+  'use strict';
+
   function arrayToSentence(arr, options) {
-    'use strict';
 
     if (!Array.isArray(arr)) {
       throw new TypeError(String(arr) + ' is not an array. Expected an array.');

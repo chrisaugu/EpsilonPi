@@ -1,8 +1,9 @@
+const restful = require('node-restful');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Artist Schema
-const Artist = mongoose.model('Artist',  new Schema({
+const Artist = module.exports = restful.model('Artist',  new Schema({
 	stage_name: {type: String},
 	bio: {type: String },
 	picture: {type: Schema.ObjectId, ref: 'Image' },
@@ -13,16 +14,14 @@ const Artist = mongoose.model('Artist',  new Schema({
 	create_date: {type: Date,default: Date.now },
 }));
 
-module.exports = Artist;
-
 // Get artist
 module.exports.getArtist = (id, callback) => {
 	Artist.findById(id).exec(callback);
 };
 
 // Get all artists
-module.exports.getArtists = (callback, limit) => {
-	Artist.find(callback).limit(limit);
+module.exports.getArtists = (options, limit, callback) => {
+	Artist.find(options).limit(limit).exec(callback);
 };
 
 // Add artist
