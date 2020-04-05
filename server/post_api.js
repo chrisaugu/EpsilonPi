@@ -56,15 +56,7 @@ module.exports = function(app) {
         });
     });
     
-    app.delete('/posts/:_id', (req, res) => {
-        var id = req.params._id;
-        Post.deletePost(id, (err, post) => {
-            if(err){
-                throw err;
-            }
-            res.json(post);
-        });
-    });
+    app.delete(playlistId);
 
     Post.register(app, '/posts');
     

@@ -7,12 +7,13 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
   query: string;
   // searchResults: Array<Person>;
   results: any;
+  searchResults: object;
 
   constructor(/*private searchService: SearchService,*/
               private router: Router,

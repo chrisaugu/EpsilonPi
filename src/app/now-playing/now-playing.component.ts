@@ -6,7 +6,7 @@ import { Track } from "../tracks/track.interface";
 @Component({
   selector: 'app-now-playing',
   templateUrl: './now-playing.component.html',
-  styleUrls: ['./now-playing.component.css']
+  styleUrls: ['./now-playing.component.scss']
 })
 export class NowPlayingComponent implements OnInit {
 	product;

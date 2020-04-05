@@ -39,6 +39,7 @@ export class AppComponent {
   radioItems = ['option1','option2','option3','option4'];
   model = { options: 'option3' };
   track: string;
+  userName: any;
 
   createNewUser(user){
     console.log("new user = "+user);
@@ -69,5 +70,9 @@ export class AppComponent {
 
   onClick($event: MouseEvent) {
 
+  }
+
+  signIn() {
+    this.userName = "kitten";
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Track } from './shared/models/track.model';
+import { Track } from '../shared/models/track.model';
 // import { TRACKS } from './mock-heroes';
 // import { MessageService } from '../message.service';
 

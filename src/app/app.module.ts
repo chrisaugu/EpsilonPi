@@ -14,7 +14,6 @@ import { /*HttpModule,*/ LocationStrategy, PathLocationStrategy } from '@angular
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ChartsComponent } from './charts/charts.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { SearchComponent } from './search/search.component';
 import { ArtistComponent } from './artist/artist.component';
@@ -37,6 +36,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { TracksModule } from "./tracks/tracks.module";
 import { SearchModule } from "./search/search.module";
 import { PlaylistsModule, } from "./playlists/playlists.module";
+import {RadioModule} from "./radio/radio.module";
+import {ChartsModule} from "./charts/charts.module";
 // import {AuthGuard} from "./auth.guard";
 
 // import { AuthModule } from './auth/auth.module';
@@ -56,7 +57,6 @@ import { PlaylistsModule, } from "./playlists/playlists.module";
     AppComponent,
     HomeComponent,
     AboutComponent,
-    ChartsComponent,
     AudioPlayerComponent,
     SearchComponent,
     // EditComponent,
@@ -82,10 +82,12 @@ import { PlaylistsModule, } from "./playlists/playlists.module";
     // HttpModule,
     // AlertModule.forRoot(),
     // MatSliderModule,
+    ChartsModule,
+    RadioModule,
     TracksModule,
     SearchModule,
     PlaylistsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   entryComponents: [],
   providers: [

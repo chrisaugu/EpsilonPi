@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'audio-player',
   templateUrl: './audio-player.component.html',
-  styleUrls: ['./audio-player.component.css']
+  styleUrls: ['./audio-player.component.scss']
 })
 
 // interface Audio {
@@ -16,7 +16,6 @@ export class AudioPlayerComponent implements OnInit {
   isMute: boolean;
 
   constructor(/*private audioPlayer: Audio*/) {
-
   }
 
   ngOnInit() {

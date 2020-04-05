@@ -434,17 +434,7 @@ router.route("/users/:_id/playlists/:playlistId")
 	        res.json(songs);
 	    });
 	})
-	.delete(function(req, res) {
-	    Playlist.remove({
-	    	id: req.param.playlistId,
-	    	ownerId: req.param._id
-	    }, function (err, playlist) {
-	        if (err){
-	            throw new Error(err);
-	        }
-	        res.json(playlist);
-	    });
-	})
+	.delete(playlistId)
 
 router.put('/users/:_id', (req, res) => {
     var id = req.params._id;
@@ -457,15 +447,7 @@ router.put('/users/:_id', (req, res) => {
     });
 });
 
-router.delete('/users/:_id', (req, res) => {
-    var id = req.params._id;
-    User.deleteUser(id, (err, cn_user) => {
-        if(err){
-            throw err;
-        }
-        res.json(cn_user);
-    });
-});
+router.delete(playlistId);
 
 // Music.methods(['get', 'post', 'put', 'delete']);
 // Music.route("/search")

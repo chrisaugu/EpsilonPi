@@ -3,8 +3,8 @@
 <ul>
   <li *ngFor="let playlist of playlists">{{playlist}}</li>
 </ul>
-<div *ngFor="let playlist of playlists; index as playlistId">
-  <a [title]="playlist.name + ' details'" routerLink="['/playlists', 'playlistId']" class="button fancy-button">
-    {{ playlist.name }} <button (click)="delete(playlist.id)"> <i class="material-icons">shopping_cart</i>x</button>
-  </a>
-</div>
+<!--<div *ngFor="let playlist of playlists; index as playlistId">-->
+<!--  <a [title]="playlist.name + ' details'" routerLink="['/playlists', 'playlistId']" class="button fancy-button">-->
+<!--    {{ playlist.name }} <button (click)="delete(playlistId)"> <i class="material-icons">shopping_cart</i>x</button>-->
+<!--  </a>-->
+<!--</div>-->
