@@ -99,6 +99,15 @@ angular.module("EpsilonPi" )
     };
 })
 
+.filter('toHHMMSS', function() {
+    return function(d) {
+    d = this;
+    var c = Math.floor(d / 3600);
+    var a = Math.floor(d % 3600 / 60);
+    var b = Math.floor(d % 3600 % 60);
+    return ((c > 0 ? c + ":" : "") + (a > 0 ? (c > 0 && a < 10 ? "0" : "") + a + ":" : "0:") + (b < 10 ? "0" : "") + b)
+}})
+
 // angular.module('project', ['ngRoute', 'firebase'])
 
 // .value('fbURL', 'https://ng-projects-list.firebaseio.com/')

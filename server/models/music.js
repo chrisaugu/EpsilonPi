@@ -31,22 +31,22 @@ module.exports.getMusics = (callback, limit) => {
 	.lean()
 	.populate('artist')
 	.limit(limit);
-}
+};
 
 // Get Music
 module.exports.getMusicById = (id, callback) => {
 	Music.findById(id, callback);
-}
+};
 
 // Add Music
 module.exports.addMusic = (music, callback) => {
 	Music.create(music, callback);
-}
+};
 
 // Add Music
 module.exports.searchMusic = (music, callback) => {
 	Music.find(music, callback);
-}
+};
 
 // Update Music
 module.exports.updateMusic = (id, music, options, callback) => {
@@ -61,12 +61,12 @@ module.exports.updateMusic = (id, music, options, callback) => {
 		pages: music.pages,
 		album_art: music.album_art,
 		url: music.url
-	}
+	};
 	Music.findOneAndUpdate(query, update, options, callback);
-}
+};
 
 // Delete Music
 module.exports.removeMusic = (id, callback) => {
 	var query = {_id: id};
 	Music.remove(query, callback);
-}
+};

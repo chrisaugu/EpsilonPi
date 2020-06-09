@@ -71,15 +71,26 @@ passport.use(new FacebookStrategy({
 	// });
 }));
 
+mongoose.Promise = global.Promise;
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
 // Connect to Mongoose
-mongoose.connect("mongodb://localhost:27017/epsilonpi");
-var db = mongoose.connection;
-db.on("open", function(){
-    console.log("Connected: Successfully connect to mongo server");
+mongoose.connect("mongodb://localhost:27017/epsilonpi")
+mongoose.connection.on("connected", function(){
+	console.log("Connected: Successfully connect to mongo server");
 });
-db.on('error', function(){
-    console.log("Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+mongoose.connection.on('error', function(){
+	console.log("Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
 });
+// .then((res) => {
+//   console.log("Connected: Successfully connect to mongo server");
+// })
+// .catch((err) => {
+//   console.log("Error: Could not connect to MongoDB. Did you forget to run 'mongod'?");
+// });
 
 // Start server
 app.listen(7000);
@@ -424,8 +435,9 @@ router.route('/users/:_id/playlists')
 
 router.route("/users/:_id/playlists/:playlistId")
 	.put(function(req, res) {
+		const playlistId = req.param.playlistId;
 	    Playlist.findOneAndUpdate({
-	    	id: req.param.playlistId,
+	    	id: playlistId,
 	    	ownerId: req.param._id
 	    }, function (err, songs) {
 	        if (err){
@@ -434,7 +446,7 @@ router.route("/users/:_id/playlists/:playlistId")
 	        res.json(songs);
 	    });
 	})
-	.delete(playlistId)
+	// .delete(playlistId)
 
 router.put('/users/:_id', (req, res) => {
     var id = req.params._id;
@@ -447,7 +459,7 @@ router.put('/users/:_id', (req, res) => {
     });
 });
 
-router.delete(playlistId);
+// router.delete(playlistId);
 
 // Music.methods(['get', 'post', 'put', 'delete']);
 // Music.route("/search")
@@ -491,3 +503,8 @@ Genre.methods(['get', 'post', 'put', 'delete']).register(router, '/genres');
 
 // var d = require("\/Users\/Wantok\/WebstormProjects\/crisbot\/lib\/randomWords\/letterFrequency.csv");
 // console.log(d);
+
+
+router.get("/se", function (req, res) {
+  console.log("eeel");
+});

@@ -1,4 +1,4 @@
-angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http, Queue, List, Shuffle, AudioPlayer, MusicService) {
+angular.module('EpsilonPi').controller('AudioPlayerCtrl', ($scope, $http, Queue, List, Shuffle, AudioPlayer, MusicService) => {
 	"use strict";
 
 	var playlist = new List();
@@ -15,10 +15,10 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 
 	$scope.showPlayer = function() {
 		return localStorage.getItem('player_show');
-	}
+	};
 
 	$scope.$on('audio-player:hide', function(event, data) {
-		console.log(data)
+		console.log(data);
 		$scope.showPlayer = data;
 	});
 
@@ -44,6 +44,7 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 		// $scope.showCurrentTime = AudioPlayer.audio-player.showCurrentTime;
 		// angular.element(window.document)[0].title = "title";
 	};
+
 	$scope.play = function(trackId) {
 		if (!this.playerInitialized) {
 			AudioPlayer.init();
@@ -53,10 +54,12 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 		AudioPlayer.play();
 		$scope.isPlaying = true;
 	};
+
 	$scope.pause = function() {
 		$scope.isPlaying = false;
 		AudioPlayer.pause();
 	};
+
 	$scope.stop = function() {
 		$scope.isPlaying = false;
 		AudioPlayer.stop();
@@ -67,6 +70,7 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 		var a = this.queue.back();
 		this.play(a);
 	};
+
 	$scope.next = function(){
 		// if on shuffle mode, shuffle the dataStore and return the front data
 		if (this.status.shuffle) {
@@ -74,14 +78,17 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 		}
 		return this.queue.front();
 	};
+
 	$scope.showCurrentTime = function() {
 		return AudioPlayer.getCurrentTime();
 		// var timeHolder = document.querySelector(".audio-player-current-time");
 		// timeHolder.innerText = this.getCurrentTime();
 	};
+
 	$scope.getDuration = function() {
 		return AudioPlayer.getDuration();
 	};
+
 	$scope.updateCurrentTime = function(a) {
 		var duration = a;
 		var min = Math.floor(duration / 60);
@@ -95,6 +102,7 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 		var _duration = min + ":" + diff;
 		return _duration;
 	};
+
 	$scope.updateVolume = function(volume) {
 		if (volume === undefined) {
 			volume = 0
@@ -113,10 +121,12 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 			AudioPlayer.mute(false);
 			$scope.isMute=false;
 		}
-	}
+	};
+
 	$scope.toggleShuffle = function(array) {
 		$scope.shuffled = true;
 	};
+
 	$scope.toggleRepeat = function() {
 		if (AudioPlayer.isRepeatEnabled()) {
 			AudioPlayer.repeat(false);
@@ -125,7 +135,8 @@ angular.module('EpsilonPi').controller('AudioPlayerCtrl', function($scope, $http
 			AudioPlayer.repeat(true);
 			$scope.isRepeat = true;
 		}
-	};	
+	};
+
 	$scope.desc_size = function(b){
 		return b.match(/^.*Size: (.+?) MB/i)[1]
 	};

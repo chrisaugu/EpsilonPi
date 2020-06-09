@@ -5,8 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "prestart": "nodemon server/server.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

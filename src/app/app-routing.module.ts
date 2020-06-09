@@ -5,9 +5,9 @@ import { RouterModule, Routes }    from '@angular/router';
 // import { AnonymousGuard }       from './anonymous.guard';
 
 import { HomeComponent }           from './home/home.component';
-// import { LoginComponent }       from './login/login.component';
+// import { LoginComponent }          from './login/login.component';
 // import { DashboardComponent }   from './dashboard/dashboard.component';
-import { SearchComponent }      from "./search/search.component";
+import { SearchComponent }         from "./search/search.component";
 // import { EditComponent }        from "./edit/edit.component";
 import { NowPlayingComponent }     from "./now-playing/now-playing.component";
 import { PageNotFoundComponent }   from './page-not-found/page-not-found.component';
@@ -18,10 +18,14 @@ import { AlbumsComponent }         from "./albums/albums.component";
 // import { TrackListComponent }   from "./tracks/tracks.component";
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent/*, canActivate: [AnonymousGuard]*/},
+  { path: 'welcome', redirectTo: 'welcome'/*, canActivate: [AnonymousGuard]*/},
+  // {
+  //   path: 'welcome',
+  //   component: LoginComponent,
+  //   canActivate: [AnonymousGuard]
+  // },
   // { path: 'heroes',   redirectTo: '/superheroes', pathMatch: 'full' },
-  // { path: 'welcome', redirectTo: 'welcome' , pathMatch: 'full' },
   // {
   //   path: 'compose',
   //   component: ComposeMessageComponent,
@@ -39,13 +43,13 @@ const appRoutes: Routes = [
   // },
   // { path: '/playlists', component: PlaylistsComponent },
   // { path: '/playlists/:playlistId', component: PlaylistsComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'artists', component: ArtistComponent },
-  // {path: 'edit/:id', component: EditComponent},
-  {path: 'search', component: SearchComponent},
+  { path: 'about', component: AboutComponent/*, canActivate: [AuthGuard]*/},
+  { path: 'artists', component: ArtistComponent/*, canActivate: [AuthGuard]*/},
+  // {path: 'edit/:id', component: EditComponent/*, canActivate: [AuthGuard]*/},
+  {path: 'search', component: SearchComponent/*, canActivate: [AuthGuard]*/},
   // {path: 'search', component: '/search', pathMatch: 'full'},
   // {path: 'search', redirectTo: '/search', pathMatch: 'full'},
-  { path: 'albums', component: AlbumsComponent },
+  { path: 'albums', component: AlbumsComponent/*, canActivate: [AuthGuard]*/},
   {
     path: 'now_playing',
     component: NowPlayingComponent,
@@ -69,14 +73,9 @@ const appRoutes: Routes = [
   // },
   // { path: 'login', component: LoginComponent },
   // {
-    // path: 'protected',
-    // component: ProtectedComponent,
-    // canActivate: [ LoggedInGuard ]
-  // },
-  // {
-  //   path: 'welcome',
-  //   component: LoginComponent,
-  //   canActivate: [AnonymousGuard]
+  //   path: 'protected',
+  //   component: ProtectedComponent,
+  //   canActivate: [ LoggedInGuard ]
   // },
   // {
   //   path: 'dashboard',
@@ -88,9 +87,13 @@ const appRoutes: Routes = [
   //   component: TrackListComponent,
   //   data: { title: 'Heroes List' }
   // },
-  {path: '**', component: PageNotFoundComponent}
+  {path: '**', component: PageNotFoundComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'welcome' , pathMatch: 'full' },
+  
 ];
 
+// @ts-ignore
 @NgModule({
   imports: [
     RouterModule.forRoot(

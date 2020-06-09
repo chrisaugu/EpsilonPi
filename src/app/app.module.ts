@@ -10,6 +10,7 @@ import { /*HttpModule,*/ LocationStrategy, PathLocationStrategy } from '@angular
 // import { MatSliderModule } from '@angular/material/slider';
 
 // import { Router } from '@angular/router';
+// import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
