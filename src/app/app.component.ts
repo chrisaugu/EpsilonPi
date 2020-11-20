@@ -4,16 +4,17 @@ import { Component } from '@angular/core';
 // import 'rxjs';
 // import { RouteConfig } from '@angular/router';
 
-// import {ArtistComponent} from "./artist/artist.component";
-import {User} from "./shared/components/signup";
-// import {SearchService} from "./shared";
+// import { User } from "./shared/components/signup";
+// import { SearchService } from "./shared";
+import { SidenavComponent } from "./shared/components/sidenav/sidenav.component";
+import { SidebarComponent } from "./shared/components/sidebar/sidebar.component";
 
 declare var $: any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 
 // @RouteConfig([
@@ -25,13 +26,13 @@ declare var $: any;
 export class AppComponent {
   url = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
   clickCount = 0;
-	newUser: User;
-	items = [];
+  // newUser: User;
+  items = [];
 
-	users = [
-	  new User("Jane"),
-    new User("Dave"),
-    new User("Tom")
+  users = [
+    // new User("Jane"),
+    // new User("Dave"),
+    // new User("Tom")
   ];
   title = 'epsilonpi';
   musics = [];
@@ -41,10 +42,17 @@ export class AppComponent {
   track: string;
   userName: any;
 
+  constructor() {
+  }
+
+  ngOnInit() {
+
+  }
+
   createNewUser(user){
     console.log("new user = "+user);
-    this.newUser = new User(user);
-    this.users.push(this.newUser);
+    // this.newUser = new User(user);
+    // this.users.push(this.newUser);
   }
 
   clickMe() {
@@ -69,6 +77,7 @@ export class AppComponent {
   }
 
   onClick($event: MouseEvent) {
+    console.log("clicked", $event);
 
   }
 

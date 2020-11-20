@@ -2,16 +2,15 @@ const restful = require('node-restful');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Artist Schema
 const Artist = module.exports = restful.model('Artist',  new Schema({
-	stage_name: {type: String},
-	bio: {type: String },
-	picture: {type: Schema.ObjectId, ref: 'Image' },
-	musics: [{type: Schema.ObjectId, ref: 'Music'}],
+	name: {type: String},
+	bio: {type: String},
+	picture: {type: Schema.ObjectId, ref: 'Image'},
+	tracks: [{type: Schema.ObjectId, ref: 'Track'}],
 	albums: [{type: Schema.ObjectId, ref: 'Album'}],
-	search_token: {type: String },
+	search_token: {type: String},
 	labels: [{type: String}],
-	create_date: {type: Date,default: Date.now },
+	create_date: {type: Date,default: Date.now}
 }));
 
 // Get artist

@@ -1,31 +1,25 @@
 import { NgModule }                from '@angular/core';
 import { RouterModule, Routes }    from '@angular/router';
 
-// import { AuthGuard }            from './auth.guard';
-// import { AnonymousGuard }       from './anonymous.guard';
+// import { AuthGuard }            from './shared/auth/auth.guard.service';
+// import { AuthGuard }            from './shared/auth/auth.guard';
+// import { AnonymousGuard }       from './shared/auth/anonymous.guard';
 
 import { HomeComponent }           from './home/home.component';
-// import { LoginComponent }          from './login/login.component';
 // import { DashboardComponent }   from './dashboard/dashboard.component';
-import { SearchComponent }         from "./search/search.component";
 // import { EditComponent }        from "./edit/edit.component";
-import { NowPlayingComponent }     from "./now-playing/now-playing.component";
 import { PageNotFoundComponent }   from './page-not-found/page-not-found.component';
 import { AboutComponent }          from './about/about.component';
-import { ArtistComponent }         from "./artist/artist.component";
-import { AlbumsComponent }         from "./albums/albums.component";
-// import { PlaylistsComponent }   from './playlists/playlists.component';
-// import { TrackListComponent }   from "./tracks/tracks.component";
+import {SignupComponent}           from "./signup/signup.component";
+import {LoginComponent}            from "./login/login.component";
+import {UploadComponent}           from "./upload/upload.component";
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent/*, canActivate: [AnonymousGuard]*/},
-  { path: 'welcome', redirectTo: 'welcome'/*, canActivate: [AnonymousGuard]*/},
-  // {
-  //   path: 'welcome',
-  //   component: LoginComponent,
-  //   canActivate: [AnonymousGuard]
-  // },
-  // { path: 'heroes',   redirectTo: '/superheroes', pathMatch: 'full' },
+  {
+    path: 'home',
+    component: HomeComponent,
+    // canActivate: [AnonymousGuard]
+  },
   // {
   //   path: 'compose',
   //   component: ComposeMessageComponent,
@@ -41,22 +35,12 @@ const appRoutes: Routes = [
   //   loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule),
   //   data: { preload: true }
   // },
-  // { path: '/playlists', component: PlaylistsComponent },
-  // { path: '/playlists/:playlistId', component: PlaylistsComponent },
-  { path: 'about', component: AboutComponent/*, canActivate: [AuthGuard]*/},
-  { path: 'artists', component: ArtistComponent/*, canActivate: [AuthGuard]*/},
-  // {path: 'edit/:id', component: EditComponent/*, canActivate: [AuthGuard]*/},
-  {path: 'search', component: SearchComponent/*, canActivate: [AuthGuard]*/},
-  // {path: 'search', component: '/search', pathMatch: 'full'},
-  // {path: 'search', redirectTo: '/search', pathMatch: 'full'},
-  { path: 'albums', component: AlbumsComponent/*, canActivate: [AuthGuard]*/},
   {
-    path: 'now_playing',
-    component: NowPlayingComponent,
-    resolve: {
-      // data: NowPlayingResolver
-    }
+    path: 'about',
+    component: AboutComponent,
+    // canActivate: [AuthGuard]
   },
+  // { path: 'edit/:id', component: EditComponent/*, canActivate: [AuthGuard]*/ },
   // {
   //   path: 'questions/about/:categorySlug',
   //   component: CategoryQuestionsComponent,
@@ -71,7 +55,20 @@ const appRoutes: Routes = [
   //     data: QuestionAnswersResolver
   //   }
   // },
-  // { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    component: LoginComponent
+    // canActivate: [AnonymousGuard]
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+    // canActivate: [AnonymousGuard]
+  },
+  {
+    path: 'upload',
+    component: UploadComponent
+  },
   // {
   //   path: 'protected',
   //   component: ProtectedComponent,
@@ -80,17 +77,10 @@ const appRoutes: Routes = [
   // {
   //   path: 'dashboard',
   //   component: DashboardComponent,
-  //   canActivate: [AuthGuard]
+  //   // canActivate: [AuthGuard]
   // },
-  // {
-  //   path: 'musics',
-  //   component: TrackListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  {path: '**', component: PageNotFoundComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '', redirectTo: 'welcome' , pathMatch: 'full' },
-  
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 // @ts-ignore

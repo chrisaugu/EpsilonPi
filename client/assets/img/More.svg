@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Asset/Button/Artist Header More - stroke</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="14" cy="14" r="14"></circle>
+        <path d="M8,3.69230769 C6.98039738,3.69230769 6.15384615,2.86575646 6.15384615,1.84615385 C6.15384615,0.826551231 6.98039738,0 8,0 C9.01960262,0 9.84615385,0.826551231 9.84615385,1.84615385 C9.84615385,2.86575646 9.01960262,3.69230769 8,3.69230769 Z M1.84615385,3.69230769 C0.826551231,3.69230769 0,2.86575646 0,1.84615385 C0,0.826551231 0.826551231,0 1.84615385,0 C2.86575646,0 3.69230769,0.826551231 3.69230769,1.84615385 C3.69230769,2.86575646 2.86575646,3.69230769 1.84615385,3.69230769 Z M14.1538462,3.69230769 C13.1342435,3.69230769 12.3076923,2.86575646 12.3076923,1.84615385 C12.3076923,0.826551231 13.1342435,0 14.1538462,0 C15.1734488,0 16,0.826551231 16,1.84615385 C16,2.86575646 15.1734488,3.69230769 14.1538462,3.69230769 Z" id="path-3"></path>
+    </defs>
+    <g id="Asset/Button/Artist-Header-More---stroke" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Oval" fill-opacity="0.06" fill="#000000" xlink:href="#path-1"></use>
+        </g>
+        <g id="Group-2" transform="translate(6.000000, 12.000000)">
+            <mask id="mask-4" fill="white">
+                <use xlink:href="#path-3"></use>
+            </mask>
+            <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-3"></use>
+        </g>
+    </g>
+</svg>

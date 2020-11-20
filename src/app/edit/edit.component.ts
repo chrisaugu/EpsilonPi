@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Address, Person, SearchService } from '../shared';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+
+// import { Address, Person, /*SearchService*/ } from '../shared';
+import { Address, Person, SearchService } from "../shared/services/search.service";
 
 @Component({
   selector: 'app-edit',
@@ -9,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit, OnDestroy {
+  // person: Object;
   person: Person;
   editName: string;
   editPhone: string;
@@ -26,10 +29,10 @@ export class EditComponent implements OnInit, OnDestroy {
       const id = + params['id']; // (+) converts string 'id' to a number
       this.service.get(id).subscribe(person => {
         if (person) {
-          this.editName = person.name;
-          this.editPhone = person.phone;
-          this.editAddress = person.address;
-          this.person = person;
+          // this.editName = person.name;
+          // this.editPhone = person.phone;
+          // this.editAddress = person.address;
+          // this.person = person;
         } else {
           this.gotoList();
         }
@@ -46,18 +49,22 @@ export class EditComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.person.name = this.editName;
-    this.person.phone = this.editPhone;
-    this.person.address = this.editAddress;
-    this.service.save(this.person);
+    // this.person.name = this.editName;
+    // this.person.phone = this.editPhone;
+    // this.person.address = this.editAddress;
+    // this.service.save(this.person);
     this.gotoList();
   }
 
   gotoList() {
-    if (this.person) {
-      this.router.navigate(['/search', {term: this.person.name} ]);
-    } else {
-      this.router.navigate(['/search']);
-    }
+    // if (this.person) {
+    //   this.router.navigate(['/search', {term: this.person.name} ]);
+    // } else {
+    //   this.router.navigate(['/search']);
+    // }
+  }
+
+  editForm() {
+
   }
 }

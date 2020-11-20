@@ -1,10 +1,48 @@
 <h3>Playlists</h3>
-<p>playlists works!</p>
-<ul>
-  <li *ngFor="let playlist of playlists">{{playlist}}</li>
+<p><i>Pick a playlist from the list</i></p>
+
+<ul class="playlist">
+  <li *ngFor="let playlist of playlists">
+    {{playlist}}
+    <a routerLink="/detail/{{playlist.id}}">
+      <span class="badge">{{playlist.id}}</span> {{playlist.name}}
+    </a>
+    <button class="delete" title="delete hero"
+            (click)="delete(playlist)">x</button>
+  </li>
+
+  <li *ngFor="let playlist of playlists" (click)="selectPlaylist(playlist)">
+    {{ playlist.title }
+    <button class="delete" title="delete hero"
+            (click)="delete(playlist)">x</button>
+    <button
+      class="list"
+      id="scrolled"
+      *ngFor="song in songs"
+      ng-key="song.src"
+      (click)="play(song)"
+      ng-class="song.src == current.src ? 'playing' : 'song'">
+      {{ song.title }} - {{ song.artist }}
+    </button>
+
+  </li>
 </ul>
+<div>
+  <label>Hero name:
+    <input #playlistId />
+  </label>
+  <label>Hero name:
+    <input #playlistName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(playlistId.value, playlistName.value); playlistName.value='';playlistId.value=''">
+    add
+  </button>
+</div>
+
 <!--<div *ngFor="let playlist of playlists; index as playlistId">-->
 <!--  <a [title]="playlist.name + ' details'" routerLink="['/playlists', 'playlistId']" class="button fancy-button">-->
 <!--    {{ playlist.name }} <button (click)="delete(playlistId)"> <i class="material-icons">shopping_cart</i>x</button>-->
 <!--  </a>-->
 <!--</div>-->
+<!--<app-hero-detail *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detail>-->

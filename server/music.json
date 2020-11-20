@@ -1,0 +1,38 @@
+{
+	"title": "Kitten",
+	"artist": {
+		"stage_name": {type: String},
+		"bio": {type: String },
+		"picture": {type: Schema.ObjectId, ref: 'Image' },
+		"musics": [{type: Schema.ObjectId, ref: 'Music'}],
+		"albums": [{type: Schema.ObjectId, ref: 'Album'}],
+		"search_token": {type: String },
+		"labels": [{type: String}],
+		"create_date": {type: Date,default: Date.now },
+	},
+	"featured_artist": [],
+	"album": {
+		"name": "",
+		"album_art": "",
+		"artist": [""],
+		"published": ""
+	},
+	"genre": {
+		"name": "Pop",
+		"img": ""
+	},
+	"year": 2020,
+	"duration": "",
+	"bitrate": {},
+	"lyrics": {},
+	"url": {},
+	"copyright": {},
+	"quality": {},
+	"size": { },
+	"playback_count": { },
+	"last_played": {},
+	"download_count": { },
+	"rating": { },
+	"added": {}
+
+}

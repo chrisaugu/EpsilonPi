@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../shared/services/user.service';
+
+import { UserService } from '../shared';
 
 @Component({
-	selector: 'app-login',
 	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.scss']
+	styleUrls: ['./login.component.scss'],
+  providers: [UserService]
 })
-
 export class LoginComponent implements OnInit {
 
-	constructor(private userService: UserService, private router: Router) {}
-	
+	constructor(private userService: UserService,
+              private router: Router) {}
+
 	ngOnInit() {}
 
 	fbLogin() {
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	signIn() {
-		this.userService().setUser({
+		this.userService.setUser({
 			user: "Dolly"
 		});
 	}

@@ -1,0 +1,19 @@
+<!--<button [disabled]="!inputIsValid" (click)="authenticate()">Login</button>-->
+<h3>Artists</h3>
+<div *ngIf="isLoading">
+  Getting data...
+  <i class="fa fa-spinner fa-spin fa-3x"></i>
+</div>
+<div *ngFor="let artist of artists" class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object img"
+           src="{{ artist.images[2]?.url }}" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{ artist.name }}</h4>
+    Followers: {{ artist.followers.total}}
+    Popularity: {{ artist.popularity }}
+  </div>
+</div>

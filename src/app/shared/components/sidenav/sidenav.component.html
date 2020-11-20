@@ -1,11 +1,36 @@
-<ul class="nav nav-extended nav-wrapper">
+<mat-nav-list class="nav nav-extended nav-wrapper">
 <!--  <li><a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a></li>-->
-  <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-  <li><a routerLink="/now_playing">Now playing</a></li>
-  <li><a routerLink="/artists">Artists</a></li>
-  <li><a routerLink="/tracks">Tracks</a></li>
-  <li><a routerLink="/radio">Radio</a></li>
-  <li><a routerLink="/charts">Charts</a></li>
-  <li><a routerLink="/playlists">Playlists</a></li>
-  <li><a routerLink="/albums">Albums</a></li>
-</ul>
+	<div mat-subheader>Folders</div>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>home</mat-icon>
+		<a mat-line routerLink="/home">Home</a>
+	</mat-list-item>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>music_note</mat-icon>
+		<a mat-line routerLink="/now_playing">Now playing</a>
+	</mat-list-item>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>person</mat-icon>
+		<a mat-line routerLink="/artists">Artists</a>
+	</mat-list-item>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>library_music</mat-icon>
+		<a mat-line routerLink="/tracks">Library</a>
+	</mat-list-item>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>online_prediction</mat-icon>
+		<a routerLink="/radio" mat-line>Radio</a>
+	</mat-list-item>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>home</mat-icon>
+		<a routerLink="/charts" mat-line>Charts</a>
+	</mat-list-item>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>queue_music</mat-icon>
+		<a routerLink="/playlists" mat-line>Playlists</a>
+	</mat-list-item>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>album</mat-icon>
+		<a routerLink="/albums" mat-line>Albums</a>
+	</mat-list-item>
+</mat-nav-list>

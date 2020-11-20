@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RadioComponent} from "./radio.component";
-import {RadioRoutingModule} from "./radio.routes";
+import { Routes, RouterModule } from '@angular/router';
+
+import { RadioComponent } from './radio.component';
+
+const routes: Routes = [
+  { path: 'radio',  component: RadioComponent/*, data: { animation: 'heroes' }*/ },
+  // { path: 'tracks/:id', component: TrackDetailComponent, data: { animation: 'hero' } },
+  // { path: 'tracks/:id/edit', component: TrackEditComponent },
+];
 
 @NgModule({
   declarations: [
@@ -9,7 +16,8 @@ import {RadioRoutingModule} from "./radio.routes";
   ],
   imports: [
     CommonModule,
-    RadioRoutingModule
-  ]
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule]
 })
 export class RadioModule { }
