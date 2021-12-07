@@ -1,3 +1,11 @@
-<p>
-  tracks works!3
-</p>
+<ul>
+  <song *ngFor="let track of tracks" [song]="track"></song>
+</ul>
+
+<mat-nav-list class="nav nav-extended nav-wrapper">
+	<div mat-subheader>Folders</div>
+	<mat-list-item role="listitem" routerLinkActive="active-link">
+		<mat-icon mat-list-icon>home</mat-icon>
+		<a mat-line routerLink="/">Home</a>
+	</mat-list-item>
+</mat-nav-list>

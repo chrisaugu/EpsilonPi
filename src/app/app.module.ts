@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -11,20 +11,17 @@ import { InMemoryDataService }  from './in-memory-data.service';
 // import { AlertModule } from 'ng2-bootstrap';
 // import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from "@angular/material/sidenav";
-// import {MatChipsModule} from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
-import {MatFormFieldModule} from '@angular/material/form-field';
+// import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
 // import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+// import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { AudioPlayerComponent } from './audio-player/audio-player.component';
+// import { AudioPlayerComponent } from './audio-player/audio-player.component';
 // import { EditComponent } from './edit/edit.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
@@ -45,11 +42,12 @@ import { RadioModule } from "./radio/radio.module";
 import { NowPlayingModule } from "./now-playing/now-playing.module";
 import { AlbumsModule } from "./albums/albums.module";
 // import { ChartsModule } from "./charts/charts.module";
+import { DashboardModule } from './dashboard/dashboard.module';
+import {AppLoadingComponent} from "./shared/components/app-loading.component";
 
 // import { AuthGuard } from "./shared/auth/auth.guard.service";
 // import { AuthGuard } from "./shared/auth/auth.guard";
 // import { AuthModule } from './shared/auth/auth.module';
-
 
 // export function getAuthHttp(http: HttpModule) {
 //   return new AuthHttp(new AuthConfig({
@@ -60,21 +58,18 @@ import { AlbumsModule } from "./albums/albums.module";
 //     tokenGetter: (() => localStorage.getItem('id_token')),
 //   }), http);
 // }
-
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    // HomeComponent,
     AboutComponent,
-    AudioPlayerComponent,
-    LoginComponent,
-    SignupComponent,
+    // AudioPlayerComponent,
     UploadComponent,
     PageNotFoundComponent,
     NavbarComponent,
     SidebarComponent,
     SidenavComponent,
-    // DashboardComponent,
+    AppLoadingComponent,
     // ComposeMessageComponent,
     // EditComponent,
     // MyNewPipePipe,
@@ -108,8 +103,8 @@ import { AlbumsModule } from "./albums/albums.module";
     // SearchModule,
     NowPlayingModule,
     PlaylistsModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    DashboardModule,
+    AppRoutingModule
   ],
   entryComponents: [],
   providers: [

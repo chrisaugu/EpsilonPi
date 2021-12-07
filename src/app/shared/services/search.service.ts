@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Track } from '../models/track.model';
-import { TRACKS } from '../../tracks/mock-tracks';
+// import { TRACKS } from '../../tracks/mock-tracks';
 // import { MessageService } from './message.service';
 
 @Injectable({
@@ -21,7 +21,8 @@ export class SearchService {
   getTracks(): Observable<Track[]> {
     // TODO: send the message _after_ fetching the heroes
     // this.messageService.add('TracksService: fetched heroes');
-    return of(TRACKS);
+    // return of(TRACKS);
+    return of([])
   }
 
   getHero(id: number | string) {

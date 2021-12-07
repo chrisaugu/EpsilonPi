@@ -5,21 +5,18 @@ import { RouterModule, Routes }    from '@angular/router';
 // import { AuthGuard }            from './shared/auth/auth.guard';
 // import { AnonymousGuard }       from './shared/auth/anonymous.guard';
 
-import { HomeComponent }           from './home/home.component';
 // import { DashboardComponent }   from './dashboard/dashboard.component';
 // import { EditComponent }        from "./edit/edit.component";
 import { PageNotFoundComponent }   from './page-not-found/page-not-found.component';
 import { AboutComponent }          from './about/about.component';
-import {SignupComponent}           from "./signup/signup.component";
-import {LoginComponent}            from "./login/login.component";
-import {UploadComponent}           from "./upload/upload.component";
+import { UploadComponent }         from "./upload/upload.component";
 
 const appRoutes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-    // canActivate: [AnonymousGuard]
-  },
+  // {
+  //   path: '',
+  //   component: TrackListComponent,
+  //   // canActivate: [AnonymousGuard]
+  // },
   // {
   //   path: 'compose',
   //   component: ComposeMessageComponent,
@@ -56,16 +53,6 @@ const appRoutes: Routes = [
   //   }
   // },
   {
-    path: 'login',
-    component: LoginComponent
-    // canActivate: [AnonymousGuard]
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
-    // canActivate: [AnonymousGuard]
-  },
-  {
     path: 'upload',
     component: UploadComponent
   },
@@ -79,7 +66,7 @@ const appRoutes: Routes = [
   //   component: DashboardComponent,
   //   // canActivate: [AuthGuard]
   // },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url(@angular/material/prebuilt-themes/deeppurple-amber.css);
-
 /* You can add global styles to this file, and also import other style files */
 html, body {
   height: 100%;
@@ -1787,5 +1786,14 @@ button.vertical-menu-item {
 .separator-bar:after {
   content: "";
   background: 2px; }
+
+.mat-list-base .mat-list-item.mat-list-item-with-avatar {
+  height: 48px !important; }
+
+.active-link {
+  background-color: #e8e8e8; }
+
+mat-sidenav-container.mat-drawer-container.mat-sidenav-container {
+  width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */

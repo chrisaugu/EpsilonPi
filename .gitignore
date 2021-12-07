@@ -1,14 +1,14 @@
 node_modules/
-epsilonpi.sublime-project
-epsilonpi.sublime-workspace
-.idea/*
+/.idea
 .env
 client/vendor/
 client/vendor/**
 client/vendor/**/*
 client/vendor/*
-my-app
+/my-app
 package-lock.json
+/uploads
+*.mp3
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
@@ -22,8 +22,6 @@ package-lock.json
 # dependencies
 /node_modules
 
-/uploads
-
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
@@ -36,6 +34,7 @@ speed-measure-plugin*.json
 *.launch
 .settings/
 *.sublime-workspace
+*.sublime-project
 
 # IDE - VSCode
 .vscode/*

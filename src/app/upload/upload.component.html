@@ -1,8 +1,5 @@
 <!-- <a href="#/musics">Go Back</a> -->
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Add Music</h3>
-  </div>
   <!-- <mat-chip-list aria-label="Fish selection">
     <mat-chip>One fish</mat-chip>
     <mat-chip>Two fish</mat-chip>
@@ -27,37 +24,44 @@
               #f="ngForm"
               (ngSubmit)="onSubmit(f)"
               novalidate>
-
-          <input type="text" class="form-control" id="name" required [(ngModel)]="model.title" name="name">
-          TODO: remove this: {{model.title}}
-
+          
           <div class="col m6">
 
             <div class="form-group input-group">
-              <span class="input-group-addon">
-                <label hidden="">Title</label><i class="fa fa-music"></i></span>
+              <span class="input-group-addon"><label hidden="">Title</label><i class="fa fa-music"></i></span>
               <input type="text" name="title" class="input-field" [(ngModel)]="model.title" placeholder="Title" value="{{model.title}}">
             </div>
+            TODO: remove this: {{model.title}}
 
             <div class="form-group input-group">
-              <span class="input-group-addon">
-              <label hidden="">Artist</label><i class="fa fa-user"></i></span>
-              <input type="text" name="artist" class="input-field autocomplete" [(ngModel)]="model.artist" value="{{model.artist}}" placeholder="Artist" pattern="example.word" required trim="false" change="suggestArtists()" blur="" focus="" list>
-              <!--            <suggest-panel title="{{artists}}"></suggest-panel>-->
-<!--              <div class="artistSuggests" show="NewMusicForm.artists">-->
-<!--                <ul class="list-inline list-unstyled">-->
-<!--                  <li class="pull-left" repeat="artist in artists | filter: artists">-->
-<!--                    <a href="#/artists/details/{{artist._id}}">{{artist.stage_name}}</a>-->
-<!--                  </li>-->
-<!--                </ul>-->
-<!--              </div>-->
-            </div>
-
+              <span class="input-group-addon"><label hidden="">Artist</label><i class="fa fa-user"></i></span>
+              <input type="text"
+                     name="artist" 
+                     class="input-field autocomplete" 
+                     [(ngModel)]="model.artist" 
+                     value="{{model.artist}}" 
+                     placeholder="Artist" 
+                     pattern="example.word" 
+                     required 
+                     trim="false" 
+                     change="suggestArtists()" 
+                     blur="" 
+                     focus="" 
+                     list>
+            <!-- <suggest-panel title="{{artists}}"></suggest-panel>
+            <div class="artistSuggests" show="NewMusicForm.artists">
+              <ul class="list-inline list-unstyled">
+                <li class="pull-left" repeat="artist in artists | filter: artists">
+                  <a href="#/artists/details/{{artist._id}}">{{artist.stage_name}}</a>
+                </li>
+              </ul>
+            </div> -->
+          </div>
 
             <div class="form-group input-group">
               <span class="input-group-addon">
               <label hidden="">Genre</label><i class="fa fa-folder"></i></span>
-              <select init="getGenre()" [(ngModel)]="model.genre" class="input-field" options="g.name for g in genres">
+              <select [(ngModel)]="model.genre" name="genre" class="input-field" options="g.name for g in genres">
                 <option value="">-- pick genre --</option>
               </select>
               <!-- <select [(ngModel)]="model.selection" options="item for item in items"></select>
@@ -73,13 +77,13 @@
             <div class="form-group input-group">
               <span class="input-group-addon">
               <label hidden="">Labels</label><i class="fa fa-folder"></i></span>
-              <input type="text" class="input-field" [(ngModel)]="model.publisher" placeholder="Publisher">
+              <input type="text" class="input-field" [(ngModel)]="model.publisher" name="publisher" placeholder="Publisher">
             </div>
-            <!-- <div class="form-group input-group">
+            <div class="form-group input-group">
               <span class="input-group-addon">
                 <label hidden="">Duration</label><i class="fa fa-clock-o"></i></span>
                 <input type="text" class="input-field" [(ngModel)]="model.duration" placeholder="Duration">
-            </div> -->
+            </div>
           </div>
 
           <div class="col m6">
@@ -91,15 +95,13 @@
             <div class="form-group input-group">
               <span class="input-group-addon">
               <label hidden="">Download URL</label><i class="fa fa-file-o"></i></span>
-              <input type="text" class="input-field" [(ngModel)]="model.url" placeholder="Download URL" ng>
-              <input type="file" name="upload" multiple>
+              <input type="text" class="input-field" [(ngModel)]="model.url" name="url" placeholder="Download URL">
+              <input type="file" name="upload" multiple="multiple" accept="audio/*">
             </div>
 
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon">
-                <label hidden="">Music</label><i class="fa fa-music"></i></span>
-                <!--              <upload-music />-->
+                <span class="input-group-addon"><label hidden="">Music</label><i class="fa fa-music"></i></span>
               </div>
               <audio id="player" src="{{model.url}}"></audio>
             </div>

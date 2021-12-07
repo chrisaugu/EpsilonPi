@@ -10,23 +10,14 @@ import {TracksService} from "../shared/services/tracks.service";
   providers: [TracksService]
 })
 export class UploadComponent implements OnInit {
-  artist: any;
-  title: any;
+  model = new Track();
 
-  constructor(public trackService: TracksService) {
-  }
+  constructor(public trackService: TracksService) {}
 
-  ngOnInit(): void {
-    this.artist = {
-      _id: 1,
-      stage_name: 'kitten'
-    }
-    this.title = "hello";
-  }
-
-  model = new Track(1, "Hello", "", "");
+  ngOnInit(): void {}
 
   async onSubmit(f: NgForm) {
+    console.log(this.model)
     console.log(f.form.getRawValue())
     // let formData = new FormData();
     // formData.append('key1', 'value1');
@@ -39,7 +30,8 @@ export class UploadComponent implements OnInit {
 
     // let response = await fetch('http://localhost:7000/api/upload', {
     //   method: 'POST',
-    //   body: new FormData(f)
+    //   // body: new FormData(f)
+    //   // body: this.model
     // });
 
     // let result = await response.json();

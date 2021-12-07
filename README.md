@@ -5,6 +5,14 @@
 The video tutorial that goes with this project can be found here
 [https://www.youtube.com/watch?v=eB9Fq9I5ocs](http://https://www.youtube.com/watch?v=eB9Fq9I5ocs "https://www.youtube.com/watch?v=eB9Fq9I5ocs")
 
+
+##Data Structures
+Shuffle songs - shuffle algo
+Next with prev - Doubly LinkedList
+Next without prev - Singly LinkedList
+Songs on repeat - Circular LinkedList
+
+
 ## Usage ##
 Just clone or download and run **npm install** and then **node app** to start
 

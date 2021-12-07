@@ -26,11 +26,11 @@ export class PlaylistsService {
   getTracks(): Observable<Track[]> {
     // TODO: send the message _after_ fetching the heroes
     // this.messageService.add('PlaylistsService: fetched heroes');
-    this.http.get<Track[]>(this.playlistUrl)
+    return this.http.get<Track[]>(this.playlistUrl)
       .pipe(
         catchError(this.handleError<Track[]>('getTracks', []))
       );
-    return of(TRACKS);
+    // return of(TRACKS);
   }
 
   /** GET hero by id. Will 404 if id not found */

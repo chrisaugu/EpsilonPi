@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { ArtistListComponent } from "./artist-list.component";
-import { ArtistDetailComponent } from "./artist-detail.component";
+import { ArtistListComponent } from "./artist-list/artist-list.component";
+import { ArtistDetailComponent } from "./artist-detail/artist-detail.component";
+import {ArtistComponent} from "../shared/components/artist.component";
 
 const routes: Routes = [
   { path: 'artists', component: ArtistListComponent, data: { animation: 'heroes' }/*, canActivate: [AuthGuard]*/ },
@@ -14,7 +15,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ArtistListComponent,
-    ArtistDetailComponent
+    ArtistDetailComponent,
+    ArtistComponent
   ],
   imports: [
     CommonModule,

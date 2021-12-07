@@ -1797,8 +1797,11 @@ button.vertical-menu-item {
 }
 
 .mat-list-base .mat-list-item.mat-list-item-with-avatar {
-    height: 40px!important;
+    height: 48px!important;
 }
 .active-link {
     background-color: #e8e8e8;
+}
+mat-sidenav-container.mat-drawer-container.mat-sidenav-container {
+    width: 100%;
 }

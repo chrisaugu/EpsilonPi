@@ -1,0 +1,9 @@
+<!--<button [disabled]="!inputIsValid" (click)="authenticate()">Login</button>-->
+<h3>Artists</h3>
+<div *ngIf="isLoading">
+  Getting data...
+  <i class="fa fa-spinner fa-spin fa-3x"></i>
+</div>
+
+<artist *ngFor="let artist of artists" [artist]="artist"></artist>
+he

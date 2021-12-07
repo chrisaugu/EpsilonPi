@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-// import { Http, HTTP_BINDINGS } from '@angular/common/http';
+import {Component, Inject} from '@angular/core';
+import { HttpClient, /*HTTP_BINDINGS*/ } from '@angular/common/http';
 // import 'rxjs/Observable';
 // import 'rxjs';
-// import { RouteConfig } from '@angular/router';
 
-// import { User } from "./shared/components/signup";
+import { User } from "./shared/models/user.model";
 // import { SearchService } from "./shared";
 import { SidenavComponent } from "./shared/components/sidenav/sidenav.component";
 import { SidebarComponent } from "./shared/components/sidebar/sidebar.component";
+// import * as Http from "http";
 
 declare var $: any;
 
@@ -16,37 +16,32 @@ declare var $: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-
-// @RouteConfig([
-//   {path:'/about', name:'About', component:'About'},
-//   {path:'/login', name:'Login', component:'Login', useAsDefault:true},
-//   {path:'/artists', name:'Artists', component:'Artist'}
-// ])
-
 export class AppComponent {
+  title = 'epsilonpi';
   url = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
   clickCount = 0;
-  // newUser: User;
+  newUser: User;
+  private users: User[];
   items = [];
 
-  users = [
-    // new User("Jane"),
-    // new User("Dave"),
-    // new User("Tom")
-  ];
-  title = 'epsilonpi';
   musics = [];
   radioTitle = "Radio Buttons in Angular";
   radioItems = ['option1','option2','option3','option4'];
   model = { options: 'option3' };
   track: string;
   userName: any;
+  isLoading: boolean;
 
-  constructor() {
+  constructor(@Inject(HttpClient) public http:HttpClient) {
+  	this.items = ['one', 'two', 'three', 'four'];
   }
 
   ngOnInit() {
-
+    this.users = [
+      new User("Jane"),
+      new User("Dave"),
+      new User("Tom")
+    ];
   }
 
   createNewUser(user){
@@ -59,10 +54,6 @@ export class AppComponent {
     ++this.clickCount;
     console.log("click count: "+this.clickCount);
   }
-
-  // constructor(@Inject(Http) public http:Http) {
-  // 	this.items = ['one', 'two', 'three', 'four'];
-  // }
 
   httpRequest() {
     $.getJSON(this.url, {
@@ -83,5 +74,9 @@ export class AppComponent {
 
   signIn() {
     this.userName = "kitten";
+  }
+
+  loaded() {
+    this.isLoading = false;
   }
 }
